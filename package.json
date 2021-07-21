@@ -1,0 +1,28 @@
+{
+  "name": "project-catwalk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Team-Foraker/Project-Catwalk.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Team-Foraker/Project-Catwalk/issues"
+  },
+  "homepage": "https://github.com/Team-Foraker/Project-Catwalk#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "babel": "^6.23.0",
+    "chai": "^4.3.4",
+    "mocha": "^9.0.2",
+    "react": "^17.0.2",
+    "underscore": "^1.13.1",
+    "webpack": "^5.45.1"
+  }
+}
