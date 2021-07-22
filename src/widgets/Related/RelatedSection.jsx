@@ -8,7 +8,6 @@ const RelatedSection = (props) => {
   useEffect(() => {
     axios.get('http://3.137.191.193/products')
          .then((res) => {
-           console.log(res.data)
            setProducts(res.data)
          })
          .catch((err) => {
