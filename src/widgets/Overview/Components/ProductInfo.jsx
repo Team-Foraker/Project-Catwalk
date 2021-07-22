@@ -1,9 +1,10 @@
 import React from 'react';
+import StarRating from '../../shared/StarRating.jsx';
 
 const ProductInfo = function({product}) {
   return (
     <div>
-      {/* Stars Component */}
+      <StarRating />
       {/* Reviews link */}
       <h3>{product.category}</h3>
       <h2>{product.name}</h2>
