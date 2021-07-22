@@ -6,7 +6,7 @@ const RelatedSection = (props) => {
 
   // fetches products data from Atelier API
   useEffect(() => {
-    axios.get('http://3.137.191.193/products')
+    axios.get('/products')
          .then((res) => {
            setProducts(res.data)
          })
