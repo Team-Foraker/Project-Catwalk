@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { url, API_TOKEN } from '/config.js';
-import Stars from '../shared/Stars.jsx';
+import StarRating from '../shared/StarRating.jsx';
 
 const Ratings = (props) => {
   const [reviews, setReviews] = useState([]);
@@ -20,7 +20,7 @@ const Ratings = (props) => {
   return (
     <div>
       <h1>Ratings</h1>
-      <Stars />
+      <StarRating />
     </div>
   )
 }
