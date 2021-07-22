@@ -1,13 +1,13 @@
 import React from 'react';
 import Ratings from './widgets/Ratings/Ratings.jsx';
 import Overview from './widgets/Overview/Overview.jsx';
-import RelatedItems from './widgets/Related/RelatedItems.jsx';
+import RelatedSection from './widgets/Related/RelatedSection.jsx';
 import Questions from './widgets/Questions/Questions.jsx';
 
 const App = (props) => {
   return (<div>
     <Overview />
-    <RelatedItems />
+    <RelatedSection />
     <Questions />
     <Ratings />
   </div>)
