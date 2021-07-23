@@ -8,15 +8,7 @@ const params = {
   product_id: 19089
 }
 
-const QAListItem = (props) => {
-  return (
-    <div>
-
-    </div>
-  )
-}
-
-const QAList = (props) => {
+const QAList = () => {
   const [questions, setQuestions] = useState([]);
   useEffect(() => {
     axios.get(url + 'qa/questions', { params: params })
@@ -31,12 +23,20 @@ const QAList = (props) => {
   return (
     <div>
       <h3>List of Questions</h3>
-      <ul>{questions.map((question) => (
-        <p key={question.question_id}> Q: {question.question_body} </p>
-        )
-        )}
+
+      <ul>
+       {questions.map((question) => (
+        <div key={question.question_id}>
+           <h4>Q: {question.question_body} </h4>
+           {Object.values(question.answers).map((answers) => (
+             <div key={answers.id}>
+                <h5>A: {answers.body} </h5>
+             </div>
+           ))}
+          </div>
+        ))}
     </ul>
-    </div>
+   </div>
   )
 }
 
