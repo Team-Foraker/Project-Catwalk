@@ -17,24 +17,6 @@ const RelatedProducts = (props) => {
   }
 
 
-
-  // useEffect(() => {
-  //   axios.get(url + 'products')
-  //        .then((res) => {
-  //          axios.get(url + `products/${res.data[0].id}/related`)
-  //          .then((res) => {
-  //            console.log(res)
-  //            const list = res.data
-  //            for (let i = 0; i < list.length; i++) {
-  //             axios.get(url + `products/${list[i]}`)
-  //             .then((res) => {
-  //               setRelatedProducts(relatedProducts.push(res.data))
-  //             })
-  //            }
-  //          })
-  //        })
-  // },[])
-
   useEffect(() => {
     axios.get(url + 'products')
          .then((res) => {
@@ -56,10 +38,12 @@ const RelatedProducts = (props) => {
       Related Products Section
       <div>
       {relatedProducts.map((product) =>
-      <div>{product.data.name}</div>)}
+      <div style={{border: '1px solid black', width: '20%', float: 'left'}}>
+      <p>{product.data.category}</p>
+      <p>{product.data.name}</p>
       </div>
-
-
+      )}
+      </div>
 
 
     </div>
