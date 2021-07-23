@@ -1,15 +1,17 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import RelatedProducts from './Components/RelatedProducts.jsx'
+
 const {url, API_TOKEN} = require('../../../config.js');
 axios.defaults.headers.common['Authorization'] = API_TOKEN;
 
 const RelatedSection = (props) => {
-  const [productsID, setProductsID] = useState([]);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     axios.get(url + 'products')
          .then((res) => {
-           setProductsID(res.data)
+           setProducts(res.data)
          })
          .catch((err) => {
            throw err;
@@ -19,7 +21,8 @@ const RelatedSection = (props) => {
 
   return (
     <div>
-      Related Section will be here.
+      <RelatedProducts />
+
     </div>
   )
 
