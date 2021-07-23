@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 
-import fontawesome from '@fortawesome/fontawesome';
-import solid from '@fortawesome/fontawesome-free-solid';
-import regular from '@fortawesome/fontawesome-free-regular';
+import fontawesome from "@fortawesome/fontawesome";
+import solid from "@fortawesome/fontawesome-free-solid";
+import regular from "@fortawesome/fontawesome-free-regular";
 
 fontawesome.library.add(solid, regular);
 
@@ -23,7 +23,7 @@ const StarRating = () => {
             onMouseEnter={() => setHover(index)}
             onMouseLeave={() => setHover(rating)}
           >
-            <span className="star">&#9733;</span>
+            <i className="fas fa-star"></i>
           </button>
         );
       })}
