@@ -13,20 +13,17 @@ const Overview = function(props) {
   useEffect(() => {
     axios.get(url + 'products')
       .then( (products) => {
-        console.log(`fetched data:`);
-        console.log(products.data[0])
         setProduct(products.data[0])
         axios.get(`${url}products/${products.data[0].id}/styles`)
           .then( (styles) => {
-            console.log(styles.data.results);
             setStyles(styles.data.results);
           })
           .catch( (error) => {
-            console.log(error)
+            throw new Error(error);
           })
       })
       .catch( (error) => {
-        console.log(error);
+        throw new Error(error);
       })
   }, []);
 
