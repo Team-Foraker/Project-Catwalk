@@ -38,7 +38,7 @@ const RelatedProducts = (props) => {
       Related Products Section
       <div>
       {relatedProducts.map((product) =>
-      <div style={{border: '1px solid black', width: '20%', float: 'left'}}>
+      <div style={{border: '1px solid black', width: '20%', float: 'left', margin: '3px', height: '120px'}}>
       <p>{product.data.category}</p>
       <p>{product.data.name}</p>
       </div>
