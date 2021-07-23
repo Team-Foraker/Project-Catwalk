@@ -30,17 +30,16 @@ const RelatedProducts = (props) => {
          })
   },[])
 
-  console.log(relatedProducts)
 
 
   return (
     <div>
       Related Products Section
       <div>
-      {relatedProducts.map((product) =>
-      <div style={{border: '1px solid black', width: '20%', float: 'left', margin: '3px', height: '120px'}}>
-      <p>{product.data.category}</p>
-      <p>{product.data.name}</p>
+      {relatedProducts.map((product, index) =>
+      <div key={index} style={{border: '1px solid black', width: '20%', float: 'left', margin: '3px', height: '120px'}}>
+      <p key='category'>{product.data.category}</p>
+      <p key='name'>{product.data.name}</p>
       </div>
       )}
       </div>
