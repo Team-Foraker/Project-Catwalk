@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import ProductInfo from './Components/ProductInfo.jsx'
-import StyleSelector from './Components/StyleSelector.jsx'
+import ProductInfo from './Components/ProductInfo.jsx';
+import StyleSelector from './Components/StyleSelector.jsx';
+import AddToCart from './Components/AddToCart.jsx';
 import axios from 'axios';
 const {url, API_TOKEN} = require('../../../config.js')
 
-var Overview = function(props) {
+const Overview = function(props) {
 
   const [product, setProduct] = useState({});
   const [styles, setStyles] = useState([]);
@@ -35,7 +36,7 @@ var Overview = function(props) {
       {/* Image Gallery */}
       <ProductInfo product={product}/>
       <StyleSelector styles={styles}/>
-      {/* Add to Cart */}
+      <AddToCart style={styles[0]}/>
     </div>
   )
 }
