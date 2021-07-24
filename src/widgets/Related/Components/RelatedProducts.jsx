@@ -51,7 +51,6 @@ const RelatedProducts = (props) => {
                  return arrayStyle;
                })
                .then((res) => {
-                 console.log()
                  setRelatedProducts(res);
                })
              })
