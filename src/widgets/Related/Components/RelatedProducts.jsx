@@ -17,15 +17,41 @@ const RelatedProducts = (props) => {
     return Promise.all(promise);
   }
 
+  // const getRelatedStyles = (arrayProducts) => {
+  //   const promiseStyles = arrayProducts.map((product) => {
+  //     return axios.get(url + `products/${product.data.id}/styles`)
+  //                 .then()
+  //                 .catch();
+  //   })
+  //   return Promise.all(promiseStyles);
+  // }
   const getRelatedStyles = (arrayProducts) => {
-    const promiseStyles = arrayProducts.map((product) => {
-      return axios.get(url + `products/${product.data.id}/styles`)
+    const promiseStyles = arrayProducts.map((id) => {
+      return axios.get(url + `products/${id}/styles`)
                   .then()
                   .catch();
     })
     return Promise.all(promiseStyles);
   }
 
+
+  // useEffect(() => {
+  //   axios.get(url + 'products')
+  //        .then((res) => {
+  //          axios.get(url + `products/${res.data[0].id}/related`)
+  //          .then((res) => {
+  //            //res.data = [12030, 230124, 412033, 23013]
+  //            getRelatedProducts(res.data)
+  //            .then((res) => {
+  //              setRelatedProducts(res)
+  //              getRelatedStyles(res)
+  //              .then((res) => {
+  //                setRelatedStyles(res)
+  //              })
+  //            })
+  //          })
+  //        })
+  // },[])
 
   useEffect(() => {
     axios.get(url + 'products')
@@ -35,10 +61,26 @@ const RelatedProducts = (props) => {
              //res.data = [12030, 230124, 412033, 23013]
              getRelatedProducts(res.data)
              .then((res) => {
-               setRelatedProducts(res)
-               getRelatedStyles(res)
+               let arrayRP = res.map((rp) => {
+                 return rp.data;
+               });
+               return arrayRP;
+             })
+             .then((arrayRP) => {
+               let productID = arrayRP.map((rp) => {
+                 return rp.id;
+               });
+               getRelatedStyles(productID)
+               .then((styleData) => {
+                 let arrayStyle = styleData.map((rp, index) => {
+                   let temp = Object.assign({}, rp.data, arrayRP[index]);
+                   return temp;
+                 });
+                 return arrayStyle;
+               })
                .then((res) => {
-                 setRelatedStyles(res)
+                 console.log()
+                 setRelatedProducts(res);
                })
              })
            })
@@ -48,7 +90,7 @@ const RelatedProducts = (props) => {
 console.log('products', relatedProducts)
 // id
 // product name, category
-console.log('styles', relatedStyles)
+// console.log('styles', relatedStyles)
 // id
 // price, picture
 
@@ -57,15 +99,16 @@ console.log('styles', relatedStyles)
     <div>
       <h3>Related Products Section</h3>
       <div>
-      {relatedProducts.map((product, index) =>
-      <div key={index} style={{border: '1px solid black', width: '20%', float: 'left', margin: '3px', height: '120px'}}>
-      <div key='image'>image</div>
-      <div key='category'>{product.data.category}</div>
-      <div key='name'>{product.data.name}</div>
-      <div key='price'>price</div>
+        {relatedProducts.map((item, index) =>
+        <div key={index} style={{border: '1px solid black', width: '20%', float: 'left', margin: '3px', height: '120px'}}>
+        <img style={{height: '60%'}} src={item.results[0].photos[0].thumbnail_url}/>
+        <p>{item.category}</p>
+        <p>{item.name}</p>
+        <p>{item.default_price}</p>
+        </div>
+        )}
 
-      </div>
-      )}
+
       </div>
 
 
@@ -74,3 +117,17 @@ console.log('styles', relatedStyles)
 }
 
 export default RelatedProducts
+
+/*
+ {relatedProducts.map((product, index) =>
+      <div key={index} style={{border: '1px solid black', width: '20%', float: 'left', margin: '3px', height: '120px'}}>
+      <div key='image'>image</div>
+      <div key='category'>{product.data.category}</div>
+      <div key='name'>{product.data.name}</div>
+      <div key='price'>price</div>
+
+      </div>
+      )}
+
+
+*/
