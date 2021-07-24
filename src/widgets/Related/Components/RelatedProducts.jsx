@@ -68,11 +68,14 @@ console.log('products', relatedProducts)
       <h3>Related Products Section</h3>
       <div>
         {relatedProducts.map((item, index) =>
-        <div key={index} style={{border: '1px solid black', width: '20%', float: 'left', margin: '3px', height: '120px'}}>
-        <img style={{height: '60%'}} src={item.results[0].photos[0].thumbnail_url}/>
+        <div key={index} style={{border: '1px solid black', width: '20%', float: 'left', margin: '3px', height: '250px'}}>
+
+        <img style={{height: '60%', width: '100%'}} src={item.results[0].photos[0].thumbnail_url}/>
         <div>{item.category}</div>
-        <div>{item.name}</div>
+        <div style={{fontWeight: 'bold'}}>{item.name}</div>
         <div>{item.default_price}</div>
+        <div>StarRating</div>
+
         </div>
         )}
 
