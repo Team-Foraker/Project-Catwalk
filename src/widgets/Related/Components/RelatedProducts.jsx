@@ -59,8 +59,6 @@ const RelatedProducts = (props) => {
          })
   },[])
 
-console.log('products', relatedProducts)
-
 
 
   return (
