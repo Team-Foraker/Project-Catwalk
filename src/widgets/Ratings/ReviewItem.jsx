@@ -4,8 +4,10 @@ const ReviewItem = props => {
   var review = props.review;
   return (
     <div className="review-item">
-      <div>Star Rating here</div>
-      <div>Date and username here</div>
+      <div className="ratings-flex-container">
+        <div>Star Rating here</div>
+        <div>Date and username here</div>
+      </div>
       <div className="review-summary">
         {review.summary}
       </div>

@@ -1,7 +1,12 @@
-.ratings-container {
+.ratings-main-component {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.ratings-flex-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-apart;
 }
 
 .review-item {
@@ -10,5 +15,9 @@
 
 .review-summary {
   font-weight: bold;
+}
+
+.ratings-reveiws-container {
+  width: 66%;
 }
 

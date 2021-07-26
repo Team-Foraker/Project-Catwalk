@@ -21,9 +21,9 @@ const Ratings = (props) => {
 
 
   return (
-    <div>
+    <div className="ratings-main-component">
       <h1>Ratings & Reviews</h1>
-      <div className="ratings-container">
+      <div className="ratings-flex-container">
         <RatingsCharts />
         <ReviewsList reviews={reviews}/>
       </div>
