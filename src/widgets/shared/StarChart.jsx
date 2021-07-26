@@ -27,9 +27,14 @@ const StarChart = (props) => {
     <div>
       {starArray.map(function (item, index) {
         if (item === 1) {
-          return <i key={index} className="fas fa-star"></i>;
+          return <i key={index} className="on fas fa-star"></i>;
         } else if (item === 0.5) {
-          return <i className="fas fa-star-half"></i>;
+          return (
+            <i>
+              <i className="fas fa-star-half fa-stack-2x"></i>
+              <i className="off fas fa-star fa-stack-1x"></i>
+            </i>
+          )
         } else {
           return <i className="off fas fa-star"></i>
         }
