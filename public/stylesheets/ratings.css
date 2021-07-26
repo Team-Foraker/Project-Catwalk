@@ -1,0 +1,14 @@
+.ratings-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.review-item {
+  border: 1px solid #000;
+}
+
+.review-summary {
+  font-weight: bold;
+}
+
