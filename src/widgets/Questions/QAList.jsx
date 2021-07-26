@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Moment from 'react-moment';
 //const {getQuestions} = require('./functions')
 const { url, API_TOKEN } = require('../../../config.js');
 const axios = require('axios');
@@ -23,7 +24,6 @@ const QAList = () => {
   return (
     <div>
       <h3>List of Questions</h3>
-
       <ul>
        {questions.map((question) => (
         <div key={question.question_id}>
@@ -31,6 +31,12 @@ const QAList = () => {
            {Object.values(question.answers).map((answers) => (
              <div key={answers.id}>
                 <h5>A: {answers.body} </h5>
+                <div class="answers_details">
+                  <div class="useranswer">by {answers.answerer_name}, <Moment format='MMMM Do YYYY'>{answers.date}</Moment></div>
+                  <div>Helpful?</div>
+                  <div class="answeryes">Yes ({answers.helpfulness})</div>
+                  <div class="report">Report</div>
+                </div>
              </div>
            ))}
           </div>
