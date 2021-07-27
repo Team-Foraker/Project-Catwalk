@@ -15,6 +15,9 @@
 
 .review-summary {
   font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .ratings-reviews-container {
