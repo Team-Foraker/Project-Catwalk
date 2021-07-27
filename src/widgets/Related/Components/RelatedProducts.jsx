@@ -56,7 +56,6 @@ const RelatedProducts = (props) => {
                let arrayRP = res.map((rp) => {
                  return rp.data;
                });
-               console.log(arrayRP)
                return arrayRP;
              })
              .then((arrayRP) => {
