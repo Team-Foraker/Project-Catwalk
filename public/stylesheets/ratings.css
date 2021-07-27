@@ -6,7 +6,7 @@
 .ratings-flex-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-apart;
+  justify-content: space-between;
 }
 
 .review-item {
@@ -17,7 +17,7 @@
   font-weight: bold;
 }
 
-.ratings-reveiws-container {
+.ratings-reviews-container {
   width: 66%;
 }
 
