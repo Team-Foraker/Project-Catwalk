@@ -17,11 +17,9 @@ const Overview = function(props) {
   useEffect(() => {
     axios.get(url + 'products')
       .then( (products) => {
-        console.log(products.data)
         setProduct(products.data[0])
         axios.get(`${url}products/${products.data[0].id}/styles`)
           .then( (styles) => {
-            console.log(styles.data.results)
             setStyles(styles.data.results);
           })
           .catch( (error) => {
