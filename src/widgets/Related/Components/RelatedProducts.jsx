@@ -82,7 +82,6 @@ const RelatedProducts = (props) => {
       })
   }, [])
 
-console.log(compareItems)
 
   return (
     <div>
@@ -101,10 +100,10 @@ console.log(compareItems)
             setShowModal(true);
             setCompareItems(item);}} key={index} style={{ border: '1px solid black', width: '20%', margin: '3px', height: '250px' }}>
             <img style={{ height: '60%', width: '100%' }} src={item.results[0].photos[0].thumbnail_url} />
-            <div>{item.category}</div>
-            <div style={{ fontWeight: 'bold' }}>{item.name}</div>
-            <div>{item.default_price}</div>
-            <div>StarRating</div>
+            <div style={{ paddingLeft: '5px' }}>{item.category}</div>
+            <div style={{ fontWeight: 'bold', paddingLeft: '5px' }}>{item.name}</div>
+            <div style={{ paddingLeft: '5px' }}>${item.default_price}</div>
+            <div style={{ paddingLeft: '5px' }}>StarRating</div>
           </div>
         )}
 

@@ -12,8 +12,8 @@ const RelatedModal = (props) => {
         <div className='modal-header' style={{ padding: '10px' }}>
           <h4 className='modal-title' style={{ margin: '0' }}></h4>
         </div>
-        <div className='modal-body' style={{padding: '10px', borderTop: '1px solid #eee', borderBottom: '1px solid #eee'}}>
-          This is modal content
+        <div className='modal-body' style={{padding: '10px', borderTop: '1px solid black', borderBottom: '1px solid black'}}>
+          MODAL BODY
           <div style={{ fontWeight: 'bold' }}>{props.chosenItem.name}</div>
           {props.chosenItem.features.map((feature, index) =>
           <div>{feature.feature}, {feature.value}</div>
