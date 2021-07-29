@@ -24,3 +24,11 @@
   width: 66%;
 }
 
+#helpfulness-yes,
+#review-report {
+  text-decoration: underline;
+}
+
+/* #ratings-stars {
+
+} */
