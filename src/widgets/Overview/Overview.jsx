@@ -13,6 +13,7 @@ const Overview = function(props) {
 
   const [product, setProduct] = useState(products[0]);
   const [styles, setStyles] = useState(productStyles);
+  const [currentStyle, setCurrent] = useState(styles[0]);
 
   useEffect(() => {
     axios.get(url + 'products')
@@ -33,10 +34,10 @@ const Overview = function(props) {
 
   return (
     <div>
-      <ImageGallery style={styles[0]}/>
-      <ProductInfo product={product} style={styles[0]}/>
-      <StyleSelector styles={styles}/>
-      <AddToCart style={styles[0]}/>
+      <ImageGallery style={currentStyle}/>
+      <ProductInfo product={product}/>
+      <StyleSelector styles={styles} setCurrent={setCurrent} currentStyle={currentStyle}/>
+      <AddToCart style={currentStyle}/>
     </div>
   )
 }

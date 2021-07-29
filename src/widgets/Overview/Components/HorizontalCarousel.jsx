@@ -4,6 +4,10 @@ const HorizontalCarousel = function({photos}) {
 
   const [photo, setPhoto] = useState(photos[0]);
 
+  useEffect( ()=> {
+    setPhoto(photos[0])
+  }, [photos])
+
   const imgStyle = {
     'maxHeight': '250px',
     'maxWidth': 'auto'
