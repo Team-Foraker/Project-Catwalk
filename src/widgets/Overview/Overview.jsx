@@ -34,7 +34,7 @@ const Overview = function(props) {
   return (
     <div>
       <ImageGallery style={styles[0]}/>
-      <ProductInfo product={product}/>
+      <ProductInfo product={product} style={styles[2]}/>
       <StyleSelector styles={styles}/>
       <AddToCart style={styles[0]}/>
     </div>
