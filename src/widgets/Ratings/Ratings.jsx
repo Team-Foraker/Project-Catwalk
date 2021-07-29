@@ -56,7 +56,7 @@ const Ratings = (props) => {
 
   return (
     <div className="ratings-main-component">
-      <h1>Ratings & Reviews</h1>
+      <div>RATINGS & REVIEWS</div>
       <div className="ratings-flex-container">
         <RatingsCharts reviews={reviews} />
         <div className="ratings-reviews-container">
