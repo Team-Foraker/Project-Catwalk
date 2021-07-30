@@ -9,21 +9,10 @@ import SizeBreakdown from './SizeBreakdown.jsx';
 import ComfortBreakdown from './ComfortBreakdown.jsx';
 
 const RatingsCharts = props => {
-  const [metaData, setMetaData] = useState([]);
-
-  useEffect(() => {
-    axios.get(`${url}reviews/meta?product_id=19289`, {
-      headers: { Authorization: API_TOKEN },
-    })
-      .then(response => {
-        setMetaData(response.data)
-      })
-  }, [])
-
   return (
     <div className="ratings-charts-container">
-      <AverageStars ratings={metaData.ratings}/>
-      <PercentRecommended />
+      <AverageStars ratings={props.metaData.ratings}/>
+      <PercentRecommended recommended={props.metaData.recommended}/>
       <StarsBarCharts />
       <SizeBreakdown />
       <ComfortBreakdown />
