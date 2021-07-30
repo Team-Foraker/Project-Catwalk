@@ -1,15 +1,22 @@
 import React from 'react';
+import Checkmark from './Checkmark.jsx';
 
-const Style = function({style, setCurrent}) {
+const Style = function({style, currentStyle, setCurrent}) {
 
   const imgStyle = {
-    'height': '50px',
-    'width': '50px',
-    'borderRadius': '50%'
+    'height': '65px',
+    'width': '65px',
+    'borderRadius': '50%',
+    'borderStyle': 'solid',
+    'borderWidth': 'thin'
   }
 
   return (
-    <img style={imgStyle} className='styleThumbnail' src={style.photos[0].thumbnail_url} onClick={() => {setCurrent(style)}} />
+    <div>
+      { style.style_id === currentStyle.style_id
+      ? <React.Fragment><img style={imgStyle} className='styleThumbnail' src={style.photos[0].thumbnail_url} onClick={() => {setCurrent(style)}} /><Checkmark /></React.Fragment>
+      : <img style={imgStyle} className='styleThumbnail' src={style.photos[0].thumbnail_url} onClick={() => {setCurrent(style)}} />}
+    </div>
   )
 }
 
