@@ -37,7 +37,7 @@ const Overview = function(props) {
       <ImageGallery style={currentStyle}/>
       <ProductInfo product={product} currentStyle={currentStyle}/>
       <StyleSelector styles={styles} setCurrent={setCurrent} currentStyle={currentStyle}/>
-      <AddToCart style={currentStyle}/>
+      <AddToCart currentStyle={currentStyle}/>
     </div>
   )
 }
