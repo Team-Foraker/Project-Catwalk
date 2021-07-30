@@ -29,6 +29,11 @@
   text-decoration: underline;
 }
 
-/* #ratings-stars {
+.averageRating-flex-container {
+  display: flex;
+}
 
-} */
+/* Average Rating Component */
+.averageRating-flex-container>span {
+  margin-top: 21.440px;
+}

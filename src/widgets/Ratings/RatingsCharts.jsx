@@ -16,13 +16,13 @@ const RatingsCharts = props => {
       headers: { Authorization: API_TOKEN },
     })
       .then(response => {
-        // console.log(response.data)
+        setMetaData(response.data)
       })
   }, [])
 
   return (
     <div className="ratings-charts-container">
-      <AverageStars />
+      <AverageStars ratings={metaData.ratings}/>
       <PercentRecommended />
       <StarsBarCharts />
       <SizeBreakdown />
