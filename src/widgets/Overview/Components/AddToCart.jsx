@@ -40,13 +40,6 @@ const AddToCart = function({currentStyle}) {
           return <option key={id} value={id}>{currentStyle.skus[id].size}</option>
         })
         : <option></option>}
-        {/* <option value="default">Select Size</option>
-        <option value="XS">XS</option>
-        <option value="S">Small</option>
-        <option value="M">Medium</option>
-        <option value="L">Large</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option> */}
       </select>
       <select name="Quantity" onChange={ (e) => {selectQuantity(e)}}>
         {currentStyle.skus[selection]
@@ -54,7 +47,6 @@ const AddToCart = function({currentStyle}) {
           return <option key={quantity} value={quantity}>{quantity}</option>
         })
         : <option></option>}
-        {/* <option>1</option> */}
       </select>
       <button>Add to Bag +</button>
       <button>Star Symbol</button>
