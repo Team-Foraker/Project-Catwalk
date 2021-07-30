@@ -9,6 +9,7 @@ import Star from "../shared/Star.jsx";
 
 const Ratings = (props) => {
   const [reviews, setReviews] = useState([]);
+  const [metaData, setMetaData] = useState([]);
 
   useEffect(() => {
     axios
@@ -22,6 +23,16 @@ const Ratings = (props) => {
       .catch((error) => {
         console.log(error);
       });
+
+      axios.get(`${url}reviews/meta?product_id=19289`, {
+        headers: { Authorization: API_TOKEN },
+      })
+        .then(response => {
+          setMetaData(response.data)
+        })
+        .catch((error) => {
+          console.log(error);
+        });
   }, []);
 
   var sortByRelevance = (reviews) => {
@@ -58,7 +69,7 @@ const Ratings = (props) => {
     <div className="ratings-main-component">
       <div>RATINGS & REVIEWS</div>
       <div className="ratings-flex-container">
-        <RatingsCharts reviews={reviews} />
+        <RatingsCharts reviews={reviews} metaData={metaData}/>
         <div className="ratings-reviews-container">
           <div>
             <Sort reviews={reviews} handleSort={handleSort} />
