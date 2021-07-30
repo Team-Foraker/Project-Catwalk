@@ -36,6 +36,7 @@ const ProductInfo = function({product, currentStyle}) {
       {currentStyle.sale_price
       ? <span><s>${currentStyle.original_price}</s>  <span style={ {'color': 'red'}}>${currentStyle.sale_price}</span></span>
       : <span>${currentStyle.original_price}</span>}
+      <SocialMedia />
     </div>
   )
 }
