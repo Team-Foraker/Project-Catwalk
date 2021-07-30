@@ -37,3 +37,27 @@
 .averageRating-flex-container>span {
   margin-top: 21.440px;
 }
+
+/* Bar Charts */
+.bar-charts-flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.number-of-stars {
+  width: 20%;
+}
+
+.gray-bar {
+  height: 10px;
+  width: 80%;
+  background-color: #bbb;
+}
+
+.green-bar {
+  position: relative;
+  background-color: green;
+  /* width: 80%; */
+  /* z-index:10; */
+  height: 10px;
+}
