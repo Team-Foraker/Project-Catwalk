@@ -10,7 +10,7 @@ const App = (props) => {
     <RelatedSection />
     <Questions />
     {/* this is for the link to the review section, currently not working */}
-    <Ratings id="ratings"/>
+    <Ratings />
   </div>)
 }
 
