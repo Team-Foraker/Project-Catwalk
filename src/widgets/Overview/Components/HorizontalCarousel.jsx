@@ -1,23 +1,24 @@
 import React, {useState, useEffect} from 'react';
 
-const HorizontalCarousel = function({photos}) {
+const HorizontalCarousel = function({photos, index, setShowModal}) {
 
-  const [photo, setPhoto] = useState(photos[0]);
+  const [photo, setPhoto] = useState(photos[index]);
 
   useEffect( ()=> {
-    setPhoto(photos[0])
-  }, [photos])
+    setPhoto(photos[index])
+  }, [photos, index])
 
   const imgStyle = {
-    'maxHeight': '250px',
-    'maxWidth': 'auto'
+    "height": "400px",
+    "width": "400px",
+    "objectFit": "contain",
+    'position': 'absolute',
+    'cursor': 'zoom-in'
   }
 
   return (
     <React.Fragment>
-      <div>Left</div>
-      { photos ? <img src={photo.url} style={imgStyle}></img> : <img></img> }
-      <div>Right</div>
+      { photos ? <img src={photo.url} style={imgStyle} onClick={() => setShowModal(true)}></img> : <img></img> }
     </React.Fragment>
   )
 }
