@@ -44,7 +44,7 @@ const ImageGallery = function({style}) {
       ? <button value={1} onClick={(e) => {updateIndex(e)}} style={ {"float": "right", "position": "relative", "zIndex": '2'} }>Right</button>
       : <div></div>}
 
-      <ExpandedView showModal={showModal} onClose={() => setShowModal(false)} photo={style.photos[index]} />
+      <ExpandedView showModal={showModal} onClose={() => setShowModal(false)} photo={style.photos[index]} index={index} style={style} updateIndex={(e) => updateIndex(e)} />
     </div>
   )
 }
