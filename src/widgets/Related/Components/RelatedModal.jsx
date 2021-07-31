@@ -14,7 +14,7 @@ const RelatedModal = (props) => {
         </div>
         <div className='modal-body' style={{padding: '10px', borderTop: '1px solid black', borderBottom: '1px solid black'}}>
           MODAL BODY
-          <div style={{ fontWeight: 'bold' }}>{props.chosenItem.name}</div>
+          <div className='modal-item-name' style={{ fontWeight: 'bold' }}>{props.chosenItem.name}</div>
           {props.chosenItem.features.map((feature, index) =>
           <div>{feature.feature}, {feature.value}</div>
           )}
