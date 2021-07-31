@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import VerticalCarousel from './VerticalCarousel.jsx';
 import HorizontalCarousel from './HorizontalCarousel.jsx';
 
 const ImageGallery = function({style}) {
@@ -12,14 +13,22 @@ const ImageGallery = function({style}) {
     "borderWidth": "thin"
   }
 
+  const verticalGrid = {
+    'display': 'grid',
+    'gridTemplateRows': '50px 50px 50px 50px 50px 50px 50px',
+    'gridGap': '15px'
+  }
+
   const updateIndex = function(event) {
     event.preventDefault();
-    setIndex(index + JSON.parse(event.target.value))
+    event.target.value !== undefined
+    ? setIndex(index + JSON.parse(event.target.value))
+    : setIndex(JSON.parse(event.target.attributes['1'].nodeValue));
   }
 
   return (
     <div style={galleryStyle} >
-      {/* Vertical Carousel */}
+      <VerticalCarousel photos={style.photos} index={index} style={verticalGrid} updateIndex={updateIndex} />
       {index !== 0
       ? <button value={-1} onClick={(e) => {updateIndex(e)}} >Left</button>
       : <div></div>}
