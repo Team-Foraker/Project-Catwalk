@@ -36,12 +36,24 @@ const Ratings = (props) => {
   }, []);
 
   var sortByRelevance = (reviews) => {
-    var sortedReviews = reviews.sort((a, b) => {
-      if (b.date == a.date) {
-        return b.helpfulness - a.helpfulness;
+    var helpfulRev = [];
+    var nonHelpfulRev = [];
+    reviews.forEach((value) => {
+      if (value.helpfulness > 0) {
+        helpfulRev.push(value);
+      } else {
+        nonHelpfulRev.push(value);
       }
+    });
+    helpfulRev = helpfulRev.sort((a, b) => {
       return new Date(b.date) - new Date(a.date);
     });
+    nonHelpfulRev = nonHelpfulRev.sort((a, b) => {
+      return new Date(b.date) - new Date(a.date);
+    });
+
+    var sortedReviews = [...helpfulRev, ...nonHelpfulRev];
+
     return sortedReviews;
   }
 
