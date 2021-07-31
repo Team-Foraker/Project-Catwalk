@@ -24,7 +24,7 @@ const App = (props) => {
 
   return (<div>
     <Overview />
-    <RelatedSection />
+    <RelatedSection products={getProducts}/>
     <Questions />
     {/* this is for the link to the review section, currently not working */}
     <Ratings />
