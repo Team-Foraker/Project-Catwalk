@@ -21,10 +21,6 @@ const CartButton = function({sizes, selection, selectedQuantity, currentStyle}) 
     }
   }
 
-  console.log(currentStyle);
-  console.log(selection);
-  console.log(selectedQuantity);
-
   return (
     <button onClick={ (e) => {postToCart(e, currentStyle, sizes, selection, selectedQuantity)}}>Add to Cart</button>
   )
