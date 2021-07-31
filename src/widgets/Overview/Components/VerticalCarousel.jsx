@@ -12,7 +12,8 @@ const VerticalCarousel = function({photos, index, updateIndex, base}) {
     'gridTemplateColumns': '50px',
     'gridTemplateRows': '25px 1fr 1fr 1fr 1fr 1fr 1fr 1fr 25px',
     'gridGap': '15px',
-    'position': 'absolute'
+    'position': 'absolute',
+    'zIndex': '1'
   }
 
   const highlighted = {

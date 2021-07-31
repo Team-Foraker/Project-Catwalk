@@ -18,8 +18,8 @@ const Overview = function(props) {
   useEffect(() => {
     axios.get(url + 'products')
       .then( (products) => {
-        setProduct(products.data[4])
-        axios.get(`${url}products/${products.data[4].id}/styles`)
+        setProduct(products.data[0])
+        axios.get(`${url}products/${products.data[0].id}/styles`)
           .then( (styles) => {
             setStyles(styles.data.results);
           })

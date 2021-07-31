@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import VerticalCarousel from './VerticalCarousel.jsx';
 import HorizontalCarousel from './HorizontalCarousel.jsx';
+import ExpandedView from './ExpandedView.jsx';
 
 const ImageGallery = function({style}) {
 
   const [index, setIndex] = useState(0);
   const [base, setBase] = useState(0);
+  const [showModal, setShowModal] = useState(false);
 
   const galleryStyle = {
     "height": "400px",
@@ -35,12 +37,14 @@ const ImageGallery = function({style}) {
     <div style={galleryStyle} >
       <VerticalCarousel photos={style.photos} index={index} updateIndex={updateIndex} base={base} />
       {index !== 0
-      ? <button value={-1} onClick={(e) => {updateIndex(e)}} style={ {"float": "left", "position": "absolute"} } >Left</button>
+      ? <button value={-1} onClick={(e) => {updateIndex(e)}} style={ {"position": "absolute", "zIndex": '1'} } >Left</button>
       : <div></div>}
-      { style ? <HorizontalCarousel photos={style.photos} index={index} /> : <HorizontalCarousel />  }
+      { style ? <HorizontalCarousel photos={style.photos} index={index} setShowModal={setShowModal}/> : <HorizontalCarousel />  }
       {index !== style.photos.length -1
-      ? <button value={1} onClick={(e) => {updateIndex(e)}} style={ {"float": "right", "position": "aboslute"} }>Right</button>
+      ? <button value={1} onClick={(e) => {updateIndex(e)}} style={ {"float": "right", "position": "relative", "zIndex": '2'} }>Right</button>
       : <div></div>}
+
+      <ExpandedView showModal={showModal} onClose={() => setShowModal(false)} photo={style.photos[index]} />
     </div>
   )
 }
