@@ -1,0 +1,60 @@
+
+
+.left-arrow {
+  position: absolute;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-right: 15px solid red;
+
+}
+
+
+.right-arrow {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid red;
+
+}
+.related-cards {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  position: relative;
+
+}
+
+.related-products {
+  border: 1px solid black;
+  width: 20%;
+  margin: 3px;
+  height: 250px;
+}
+
+.related-image {
+  height: 60%;
+  width: 100%;
+}
+
+.related-category {
+  padding-left: 5px;
+
+}
+.related-name {
+  font-weight: bold;
+  padding-left: 5px;
+}
+.related-price {
+  padding-left: 5px
+}
+
+.related-star {
+  padding-left: 5px
+}

@@ -82,14 +82,12 @@ const RelatedProducts = (props) => {
       })
   }, [])
 
-
   return (
     <div>
       <h3>Related Products Section</h3>
-      <div className='related-cards' style={{ display: 'flex', flexDirection: 'row', width: 'fitContent', position: 'relative' }}>
-
+      <div className='related-cards'>
         {leftCount !== 0 ? (
-          <i className='left-arrow' style={{ position: 'absolute', top: '50%', width: '0', height: '0', borderTop: '15px solid transparent', borderBottom: '15px solid transparent', borderRight: '15px solid red' }} onClick={() => {
+          <i className='left-arrow' onClick={() => {
             decrement();
           }}>
           </i>
@@ -98,17 +96,22 @@ const RelatedProducts = (props) => {
         {relatedProducts.slice(leftCount, rightCount).map((item, index) =>
           <div onClick={() => {
             setShowModal(true);
-            setCompareItems(item);}} key={index} style={{ border: '1px solid black', width: '20%', margin: '3px', height: '250px' }}>
-            <img style={{ height: '60%', width: '100%' }} src={item.results[0].photos[0].thumbnail_url} />
-            <div style={{ paddingLeft: '5px' }}>{item.category}</div>
-            <div style={{ fontWeight: 'bold', paddingLeft: '5px' }}>{item.name}</div>
-            <div style={{ paddingLeft: '5px' }}>${item.default_price}</div>
-            <div style={{ paddingLeft: '5px' }}>StarRating</div>
+            setCompareItems(item);}} key={index} className='related-products'>
+            <img className='related-image' src={item.results[0].photos[0].thumbnail_url} />
+            <div className='related-category'>{item.category}</div>
+            <div className='related-name'>{item.name}</div>
+            {item.sale_price ? (
+            <div>
+              <s className='related-price' style={{color: 'red'}}>${item.default_price}</s>
+              <div className='related-price'>${item.sale_price}</div>
+            </div>
+            ) : (<div className='related-price'>${item.default_price}</div>)}
+            <div className='related-star'>StarRating</div>
           </div>
         )}
 
         {leftCount !== rightCount - 1 ? (
-          <i className='right-arrow' style={{ position: 'absolute', top: '50%', right: '10%', width: '0', height: '0', borderTop: '15px solid transparent', borderBottom: '15px solid transparent', borderLeft: '15px solid red' }} onClick={() => {
+          <i className='right-arrow' onClick={() => {
             increment();
           }}>
           </i>
