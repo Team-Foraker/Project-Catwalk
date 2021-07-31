@@ -11,7 +11,9 @@ const HorizontalCarousel = function({photos, index}) {
   const imgStyle = {
     "height": "400px",
     "width": "400px",
-    "objectFit": "contain"
+    "objectFit": "contain",
+    'position': 'absolute',
+    'zIndex': '-1'
   }
 
   return (

@@ -5,19 +5,24 @@ import HorizontalCarousel from './HorizontalCarousel.jsx';
 const ImageGallery = function({style}) {
 
   const [index, setIndex] = useState(0);
+  const [base, setBase] = useState(0);
 
   const galleryStyle = {
     "height": "400px",
     "width": "400px",
     "borderStyle": "solid",
-    "borderWidth": "thin"
+    "borderWidth": "thin",
+    "position": "relative"
   }
 
-  const verticalGrid = {
-    'display': 'grid',
-    'gridTemplateRows': '50px 50px 50px 50px 50px 50px 50px',
-    'gridGap': '15px'
-  }
+  useEffect( () => {
+    index === base + 7
+    ? setBase(base + 1)
+    : null;
+    index < base
+    ? setBase(base - 1)
+    : null;
+  }, [index])
 
   const updateIndex = function(event) {
     event.preventDefault();
@@ -28,13 +33,13 @@ const ImageGallery = function({style}) {
 
   return (
     <div style={galleryStyle} >
-      <VerticalCarousel photos={style.photos} index={index} style={verticalGrid} updateIndex={updateIndex} />
+      <VerticalCarousel photos={style.photos} index={index} updateIndex={updateIndex} base={base} />
       {index !== 0
-      ? <button value={-1} onClick={(e) => {updateIndex(e)}} >Left</button>
+      ? <button value={-1} onClick={(e) => {updateIndex(e)}} style={ {"float": "left", "position": "absolute"} } >Left</button>
       : <div></div>}
       { style ? <HorizontalCarousel photos={style.photos} index={index} /> : <HorizontalCarousel />  }
       {index !== style.photos.length -1
-      ? <button value={1} onClick={(e) => {updateIndex(e)}} style={ {"float": "right" }}>Right</button>
+      ? <button value={1} onClick={(e) => {updateIndex(e)}} style={ {"float": "right", "position": "aboslute"} }>Right</button>
       : <div></div>}
     </div>
   )
