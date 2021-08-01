@@ -14,7 +14,7 @@ const RatingsCharts = props => {
       <AverageStars ratings={props.metaData.ratings}/>
       <PercentRecommended recommended={props.metaData.recommended}/>
       <StarsBarCharts ratings={props.metaData.ratings}/>
-      <SizeBreakdown />
+      <SizeBreakdown characteristics={props.metaData.characteristics}/>
       <ComfortBreakdown />
     </div>
   )

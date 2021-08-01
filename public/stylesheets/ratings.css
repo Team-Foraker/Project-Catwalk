@@ -61,3 +61,14 @@
   /* z-index:10; */
   height: 10px;
 }
+
+/* Size breakdown */
+.breakdown-flex-container {
+  display: flex;
+}
+
+.breakdown-segment {
+  width: 33%;
+  background-color: #bbb;
+  height: 10px;
+}
