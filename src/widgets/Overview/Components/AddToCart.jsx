@@ -3,7 +3,7 @@ import SizeSelection from './SizeSelection.jsx';
 import QuantitySelection from './QuantitySelection.jsx';
 import CartButton from './CartButton.jsx';
 
-const AddToCart = function({currentStyle}) {
+const AddToCart = function({currentStyle, isEmpty, setEmpty}) {
 
   const [sizes, setSizes] = useState(Object.keys(currentStyle.skus))
   const [selection, setSelection] = useState("")
@@ -21,7 +21,7 @@ const AddToCart = function({currentStyle}) {
   // it changes the quantity to 1 when it doesn't always reflect it accurately
   useEffect( () => {
     selection !== ""
-    ? setQuantity(1)
+    ? setQuantity("1")
     : setQuantity("-")
   }, [selection])
 
@@ -41,6 +41,9 @@ const AddToCart = function({currentStyle}) {
 
   return (
     <form style={cartStyle}>
+      {!isEmpty
+      ? <div/>
+      : <span style={ {'color': 'red'} }>Please select size</span>}
       {sizes[0] !== "null"
       ? <SizeSelection sizes={sizes} currentStyle={currentStyle} selectSize={selectSize} />
       : <select disabled ><option>OUT OF STOCK</option></select>}
@@ -55,7 +58,7 @@ const AddToCart = function({currentStyle}) {
         : <option></option>}
       </select> */}
       {sizes[0] !== "null"
-      ? <CartButton sizes={sizes} selection={selection} selectedQuantity={selectedQuantity} currentStyle={currentStyle} />
+      ? <CartButton sizes={sizes} selection={selection} selectedQuantity={selectedQuantity} currentStyle={currentStyle} setEmpty={setEmpty} />
       : <div></div>}
       {/* <button>Star Symbol</button> */}
     </form>

@@ -1,15 +1,21 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 const {url, API_TOKEN} = require('../../../../config.js')
 axios.defaults.headers.common['Authorization'] = API_TOKEN;
 
-const CartButton = function({sizes, selection, selectedQuantity, currentStyle}) {
+const CartButton = function({sizes, selection, selectedQuantity, currentStyle, setEmpty}) {
+
+  const [sizeDropDown, setSizeDropDown] = useState(null);
 
   const postToCart = function(event, currentStyle, sizes, selection, selectedQuantity) {
     event.preventDefault();
-    if (selection === "") {
-      // this should open up the size selector menu
-      // and also alert the user that they need to select a size
+    if (selection.length === 0) {
+      setEmpty(true)
+      console.log(document.getElementById('sizeSelector'))
+      let e = new KeyboardEvent('keydown', {'keyCode':32, 'which':32});
+      let sizeSelector = document.getElementById('sizeSelector');
+      sizeSelector.focus();
+      sizeSelector.dispatchEvent(e);
     } else if (selectedQuantity > 0) {
       axios.post(url + 'cart', {sku_id: selection, count: selectedQuantity})
         .then((results) => {
