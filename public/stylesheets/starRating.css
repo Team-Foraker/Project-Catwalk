@@ -4,9 +4,39 @@ button {
   outline: none;
   cursor: pointer;
 }
-.on {
+/* .on {
   color: #000;
 }
 .off {
   color: #ccc;
+} */
+
+.star-rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.star-rating > button > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+
+.star-rating > button:hover:before,
+.star-rating > button:hover ~  button:before {
+   content: "\2605";
+   position: absolute;
+}
+
+/* Average Star Rating */
+.star-chart-container {
+  position: relative;
+}
+.hollow-stars {
+  display: inline-block;
+  position: absolute;
+}
+
+.solid-stars {
+  position: absolute;
+  display: inline-block;
 }

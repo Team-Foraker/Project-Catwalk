@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 
 const StarsBarCharts = props => {
   const ratings = props.ratings;
@@ -26,45 +26,3 @@ const StarsBarCharts = props => {
     }
   })
 
-
-  return (
-    <div>
-      <div className="ratings-flex-container">
-        <div className="number-of-stars">5 stars</div>
-        <div className="gray-bar">
-          <div className="green-bar" style={{width: `${fives}%`}}></div>
-        </div>
-      </div>
-
-      <div className="ratings-flex-container">
-        <div className="number-of-stars">4 stars</div>
-        <div className="gray-bar">
-          <div className="green-bar"style={{width: `${fours}%`}}></div>
-        </div>
-      </div>
-
-      <div className="ratings-flex-container">
-        <div className="number-of-stars">3 stars</div>
-        <div className="gray-bar">
-          <div className="green-bar"style={{width: `${threes}%`}}></div>
-        </div>
-      </div>
-
-      <div className="ratings-flex-container">
-        <div className="number-of-stars">2 stars</div>
-        <div className="gray-bar">
-          <div className="green-bar"style={{width: `${twos}%`}}></div>
-        </div>
-      </div>
-
-      <div className="ratings-flex-container">
-        <div className="number-of-stars">1 stars</div>
-        <div className="gray-bar">
-          <div className="green-bar"style={{width: `${ones}%`}}></div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-export default StarsBarCharts;

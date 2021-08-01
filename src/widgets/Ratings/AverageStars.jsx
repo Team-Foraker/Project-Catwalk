@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import AverageStarRating from '../shared/AverageStarRating.jsx';
 
 const AverageStars = props => {
   var ratings = props.ratings;
@@ -19,7 +20,8 @@ const AverageStars = props => {
   return(
     <div className="averageRating-flex-container">
       <h1>{averageRating}</h1>
-      <span>&#9734;&#9734;&#9734;&#9734;&#9734;</span>
+      {/* <span>&#9734;&#9734;&#9734;&#9734;&#9734;</span> */}
+      <AverageStarRating />
     </div>
   )
 }

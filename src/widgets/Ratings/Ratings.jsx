@@ -5,7 +5,7 @@ import StarRating from "../shared/StarRating.jsx";
 import RatingsCharts from "./RatingsCharts.jsx";
 import ReviewsList from "./ReviewsList.jsx";
 import Sort from "./Sort.jsx";
-import Star from "../shared/Star.jsx";
+// import Star from "../shared/Star.jsx";
 
 const Ratings = (props) => {
   const [reviews, setReviews] = useState([]);
@@ -36,12 +36,24 @@ const Ratings = (props) => {
   }, []);
 
   var sortByRelevance = (reviews) => {
-    var sortedReviews = reviews.sort((a, b) => {
-      if (b.date == a.date) {
-        return b.helpfulness - a.helpfulness;
+    var helpfulRev = [];
+    var nonHelpfulRev = [];
+    reviews.forEach((value) => {
+      if (value.helpfulness > 0) {
+        helpfulRev.push(value);
+      } else {
+        nonHelpfulRev.push(value);
       }
+    });
+    helpfulRev = helpfulRev.sort((a, b) => {
       return new Date(b.date) - new Date(a.date);
     });
+    nonHelpfulRev = nonHelpfulRev.sort((a, b) => {
+      return new Date(b.date) - new Date(a.date);
+    });
+
+    var sortedReviews = [...helpfulRev, ...nonHelpfulRev];
+
     return sortedReviews;
   }
 
@@ -66,7 +78,8 @@ const Ratings = (props) => {
   };
 
   return (
-    <div className="ratings-main-component">
+    <div className="ratings-main-component" id="ratings">
+      <StarRating />
       <div>RATINGS & REVIEWS</div>
       <div className="ratings-flex-container">
         <RatingsCharts reviews={reviews} metaData={metaData}/>

@@ -1,10 +1,8 @@
 import React from 'react';
 
 const SizeBreakdown = props => {
-  return (
-    <div>
-      Size Breakdown Component
-    </div>
+  return(
+    <div>breakdown here</div>
   )
 }
 
