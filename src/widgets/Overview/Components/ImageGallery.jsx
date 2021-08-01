@@ -14,7 +14,11 @@ const ImageGallery = function({style}) {
     "width": "400px",
     "borderStyle": "solid",
     "borderWidth": "thin",
-    "position": "relative"
+    "position": "relative",
+    "gridRowStart": "1",
+    "gridRowEnd": "3",
+    "gridColumnStart": "1",
+    "gridColumnEnd": "1"
   }
 
   useEffect( () => {

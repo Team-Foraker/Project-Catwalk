@@ -32,8 +32,14 @@ const Overview = function(props) {
       })
   }, []);
 
+  const overviewStyle = {
+    display: 'grid',
+    gridTemplateColumns: '45vw 35vw',
+    gridTemplateRows: '1fr 1fr 1fr'
+  }
+
   return (
-    <div>
+    <div style={overviewStyle}>
       <ImageGallery style={currentStyle}/>
       <ProductInfo product={product} currentStyle={currentStyle}/>
       <StyleSelector styles={styles} setCurrent={setCurrent} currentStyle={currentStyle}/>

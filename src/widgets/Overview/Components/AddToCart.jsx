@@ -33,8 +33,14 @@ const AddToCart = function({currentStyle}) {
     setQuantity(event.target.value)
   }
 
+  const cartStyle = {
+    gridColumnStart: '2',
+    gridColumnEnd: '2',
+    gridRowStart: '3'
+  }
+
   return (
-    <form>
+    <form style={cartStyle}>
       {sizes[0] !== "null"
       ? <SizeSelection sizes={sizes} currentStyle={currentStyle} selectSize={selectSize} />
       : <select disabled ><option>OUT OF STOCK</option></select>}
@@ -51,7 +57,7 @@ const AddToCart = function({currentStyle}) {
       {sizes[0] !== "null"
       ? <CartButton sizes={sizes} selection={selection} selectedQuantity={selectedQuantity} currentStyle={currentStyle} />
       : <div></div>}
-      <button>Star Symbol</button>
+      {/* <button>Star Symbol</button> */}
     </form>
   )
 }
