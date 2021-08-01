@@ -5,7 +5,7 @@ import StarRating from "../shared/StarRating.jsx";
 import RatingsCharts from "./RatingsCharts.jsx";
 import ReviewsList from "./ReviewsList.jsx";
 import Sort from "./Sort.jsx";
-import Star from "../shared/Star.jsx";
+// import Star from "../shared/Star.jsx";
 
 const Ratings = (props) => {
   const [reviews, setReviews] = useState([]);
