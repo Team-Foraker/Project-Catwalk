@@ -11,8 +11,6 @@ const App = (props) => {
 
   const [getProducts, setGetProducts] = useState({});
 
-
-
   return (
   <div>
     <Overview getProducts={getProducts} />
