@@ -9,13 +9,13 @@ axios.defaults.headers.common['Authorization'] = API_TOKEN;
 
 const App = (props) => {
 
-  const [getProducts, setGetProducts] = useState([]);
+  const [getProducts, setGetProducts] = useState({});
 
 
 
   return (
   <div>
-    <Overview />
+    <Overview getProducts={getProducts} />
     <RelatedSection products={getProducts} setProducts={setGetProducts}/>
     <Questions />
     <Ratings />
