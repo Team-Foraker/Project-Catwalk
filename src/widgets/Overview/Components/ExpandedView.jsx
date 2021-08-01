@@ -31,13 +31,13 @@ const ExpandedView = ({showModal, onClose, photo, index, style, updateIndex}) =>
         </div>
         <div className='modal-body' style={{padding: '10px', borderTop: '1px solid black', borderBottom: '1px solid black'}}>
           {index !== 0 && !zoom
-          ? <button value={-1} onClick={(e) => {updateIndex(e)}} style={ {"position": "absolute", "zIndex": '1'} } >Left</button>
+          ? <button className="left-arrow" value={-1} onClick={(e) => {updateIndex(e)}} ></button>
           : <div></div>}
           {(!zoom)
           ? <img src={photo.url} style={ {width: '70vw', height: '70vh', objectFit: 'contain', cursor: "url(https://img.icons8.com/material-outlined/24/000000/plus--v1.png), zoom-in"} } onClick={() => zoomHandler()}></img>
           : <div id="zoomed"  style={ {width: '70vw', height: '70vh', cursor: "url(https://img.icons8.com/ios-glyphs/30/000000/minus.png), zoom-out", '--x': '0px', '--y': '0px', backgroundImage: `url(${photo.url})`, backgroundPosition: 'var(--x) var(--y)', backgroundSize: '150%', backgroundRepeat: 'no-repeat'} } onClick={()=> zoomHandler()}></div>}
           {index !== style.photos.length -1 && !zoom
-          ? <button value={1} onClick={(e) => {updateIndex(e)}} style={ {"float": "right", "position": "relative", "zIndex": '2'} }>Right</button>
+          ? <button className="right-arrow" value={1} onClick={(e) => {updateIndex(e)}} ></button>
           : <div></div>}
         </div>
         <div className='modal-footer' style={{ padding: '10px' }}>

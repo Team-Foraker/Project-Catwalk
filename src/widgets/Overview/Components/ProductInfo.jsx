@@ -25,8 +25,12 @@ const ProductInfo = function({product, currentStyle}) {
       })
   }, [product])
 
+  const productStyle = {
+    gridrowStart: "1"
+  }
+
   return (
-    <div>
+    <div style={productStyle}>
       <StarRating />
       {reviewCount
       ? <span><a href="#ratings">Read all {reviewCount} reviews</a></span>

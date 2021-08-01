@@ -18,7 +18,6 @@ const App = (props) => {
     <Overview />
     <RelatedSection products={getProducts} setProducts={setGetProducts}/>
     <Questions />
-    {/* this is for the link to the review section, currently not working */}
     <Ratings />
   </div>)
 }

@@ -3,6 +3,10 @@ import Style from './Style.jsx';
 
 const StyleSelector = function({styles, currentStyle, setCurrent}) {
 
+  const selectorStyle = {
+    'gridRowStart': '2'
+  }
+
   const gridStyle = {
     'display': 'grid',
     'gridTemplateColumns': '65px 65px 65px 65px',
@@ -10,7 +14,7 @@ const StyleSelector = function({styles, currentStyle, setCurrent}) {
   }
 
   return (
-    <div>
+    <div style={selectorStyle}>
       <h4><b>Style ></b> {currentStyle.name}</ h4>
       <div style={gridStyle}>
       {styles.map( (style) => {
