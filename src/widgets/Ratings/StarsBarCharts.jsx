@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 const StarsBarCharts = props => {
   const ratings = props.ratings;
@@ -17,12 +17,54 @@ const StarsBarCharts = props => {
       totalReviews += parseInt(ratings[key]);
     }
     setTotalRatings(totalReviews);
-    if (ratings){
-      setFives(Math.round(Number(ratings[5])/totalReviews * 100));
-      setFours(Math.round(Number(ratings[4])/totalReviews * 100));
-      setThrees(Math.round(Number(ratings[3])/totalReviews * 100));
-      setTwos(Math.round(Number(ratings[2])/totalReviews * 100));
-      setOnes(Math.round(Number(ratings[1])/totalReviews * 100));
+    if (ratings) {
+      setFives(Math.round(Number(ratings[5]) / totalReviews * 100));
+      setFours(Math.round(Number(ratings[4]) / totalReviews * 100));
+      setThrees(Math.round(Number(ratings[3]) / totalReviews * 100));
+      setTwos(Math.round(Number(ratings[2]) / totalReviews * 100));
+      setOnes(Math.round(Number(ratings[1]) / totalReviews * 100));
     }
   })
 
+  return (
+    <div>
+      Stars Bar Charts Component
+      <div className="ratings-flex-container">
+        <div className="number-of-stars">5 stars</div>
+        <div className="gray-bar">
+          <div className="green-bar" style={{ width: `${fives}%` }}></div>
+        </div>
+      </div>
+
+      <div className="ratings-flex-container">
+        <div className="number-of-stars">4 stars</div>
+        <div className="gray-bar">
+          <div className="green-bar" style={{ width: `${fours}%` }}></div>
+        </div>
+      </div>
+
+      <div className="ratings-flex-container">
+        <div className="number-of-stars">3 stars</div>
+        <div className="gray-bar">
+          <div className="green-bar" style={{ width: `${threes}%` }}></div>
+        </div>
+      </div>
+
+      <div className="ratings-flex-container">
+        <div className="number-of-stars">2 stars</div>
+        <div className="gray-bar">
+          <div className="green-bar" style={{ width: `${twos}%` }}></div>
+        </div>
+      </div>
+
+      <div className="ratings-flex-container">
+        <div className="number-of-stars">1 stars</div>
+        <div className="gray-bar">
+          <div className="green-bar" style={{ width: `${ones}%` }}></div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default StarsBarCharts;
