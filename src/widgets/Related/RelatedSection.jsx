@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import App from '../../App.jsx'
 import RelatedProducts from './Components/RelatedProducts.jsx'
 import RelatedOutfits from './Components/RelatedOutfit.jsx'
 

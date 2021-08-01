@@ -11,20 +11,17 @@ const App = (props) => {
 
   const [getProducts, setGetProducts] = useState([]);
 
-  useEffect(() => {
+  const retriveProducts = () => {
     axios.get(url + 'products')
-      .then((res) => {
-        setGetProducts(res.data[1])
-      }
-      )
-  }, [])
-
-
+         .then((res) => {
+           setGetProducts(res.data[1])
+         })
+  }
 
 
   return (<div>
     <Overview />
-    <RelatedSection products={getProducts}/>
+    <RelatedSection products={getProducts} retriveProducts={retriveProducts}/>
     <Questions />
     {/* this is for the link to the review section, currently not working */}
     <Ratings />
