@@ -10,19 +10,22 @@ const ProductInfo = function({product, currentStyle}) {
   const [reviewCount, setReviewCount] = useState(0);
 
   useEffect( () => {
+    if (product.id) {
+      axios.get(url + 'reviews/meta?product_id=' + product.id)
+        .then( (results) => {
+          let ratings = Object.keys(results.data.ratings);
+          let reviews = 0;
+          for (var i = 0; i < ratings.length; i++) {
+            reviews += JSON.parse(results.data.ratings[ratings[i]]);
+          }
+          setReviewCount(reviews)
+        })
+        .catch( (error) => {
+          throw new Error(error);
+        })
+    } else {
 
-    axios.get(url + 'reviews/meta?product_id=' + product.id)
-      .then( (results) => {
-        let ratings = Object.keys(results.data.ratings);
-        let reviews = 0;
-        for (var i = 0; i < ratings.length; i++) {
-          reviews += JSON.parse(results.data.ratings[ratings[i]]);
-        }
-        setReviewCount(reviews)
-      })
-      .catch( (error) => {
-        throw new Error(error);
-      })
+    }
   }, [product])
 
   const productStyle = {

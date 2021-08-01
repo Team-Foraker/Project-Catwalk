@@ -3,7 +3,7 @@ import VerticalCarousel from './VerticalCarousel.jsx';
 import HorizontalCarousel from './HorizontalCarousel.jsx';
 import ExpandedView from './ExpandedView.jsx';
 
-const ImageGallery = function({style}) {
+const ImageGallery = function({styles, style}) {
 
   const [index, setIndex] = useState(0);
   const [base, setBase] = useState(0);

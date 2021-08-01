@@ -9,29 +9,47 @@ axios.defaults.headers.common['Authorization'] = API_TOKEN;
 
 const {products, productStyles} = require('./DefaultData/placeholderData.js');
 
-const Overview = function(props) {
+const Overview = function({getProducts}) {
 
   const [product, setProduct] = useState(products[0]);
   const [styles, setStyles] = useState(productStyles);
   const [currentStyle, setCurrent] = useState(styles[0]);
   const [isEmpty, setEmpty] = useState(false);
 
-  useEffect(() => {
-    axios.get(url + 'products')
-      .then( (products) => {
-        setProduct(products.data[0])
-        axios.get(`${url}products/${products.data[0].id}/styles`)
-          .then( (styles) => {
-            setStyles(styles.data.results);
-          })
-          .catch( (error) => {
-            throw new Error(error);
-          })
-      })
-      .catch( (error) => {
-        throw new Error(error);
-      })
-  }, []);
+  // useEffect(() => {
+  //   axios.get(url + 'products')
+  //     .then( (products) => {
+  //       setProduct(products.data[0])
+  //       axios.get(`${url}products/${products.data[0].id}/styles`)
+  //         .then( (styles) => {
+  //           setStyles(styles.data.results);
+  //         })
+  //         .catch( (error) => {
+  //           throw new Error(error);
+  //         })
+  //     })
+  //     .catch( (error) => {
+  //       throw new Error(error);
+  //     })
+  // }, []);
+
+  useEffect( ()=> {
+    setProduct(getProducts)
+  }, [getProducts])
+
+  useEffect( () => {
+    if (product.id) {
+      axios.get(url + 'products/' + product.id + '/styles')
+        .then( (result) => {
+          setStyles(result.data.results)
+        })
+        .catch( (error) => {
+          throw new Error(error)
+        })
+    } else {
+
+    }
+  }, [product])
 
   const overviewStyle = {
     display: 'grid',
