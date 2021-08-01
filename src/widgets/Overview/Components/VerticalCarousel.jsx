@@ -10,7 +10,7 @@ const VerticalCarousel = function({photos, index, updateIndex, base}) {
   const verticalGrid = {
     'display': 'grid',
     'gridTemplateColumns': '50px',
-    'gridTemplateRows': '25px 1fr 1fr 1fr 1fr 1fr 1fr 1fr 25px',
+    'gridTemplateRows': '15px 1fr 1fr 1fr 1fr 1fr 1fr 1fr 15px',
     'gridGap': '15px',
     'position': 'absolute',
     'zIndex': '1'
