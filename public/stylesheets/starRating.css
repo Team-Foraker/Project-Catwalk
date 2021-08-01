@@ -39,4 +39,5 @@ button {
 .solid-stars {
   position: absolute;
   display: inline-block;
+  overflow: hidden;
 }

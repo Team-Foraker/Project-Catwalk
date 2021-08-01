@@ -20,8 +20,7 @@ const AverageStars = props => {
   return(
     <div className="averageRating-flex-container">
       <h1>{averageRating}</h1>
-      {/* <span>&#9734;&#9734;&#9734;&#9734;&#9734;</span> */}
-      <AverageStarRating />
+      <AverageStarRating average={averageRating}/>
     </div>
   )
 }

@@ -28,7 +28,6 @@ const StarsBarCharts = props => {
 
   return (
     <div>
-      Stars Bar Charts Component
       <div className="ratings-flex-container">
         <div className="number-of-stars">5 stars</div>
         <div className="gray-bar">
