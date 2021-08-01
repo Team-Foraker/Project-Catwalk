@@ -5,7 +5,7 @@ import StarRating from "../shared/StarRating.jsx";
 import RatingsCharts from "./RatingsCharts.jsx";
 import ReviewsList from "./ReviewsList.jsx";
 import Sort from "./Sort.jsx";
-import Star from "../shared/Star.jsx";
+// import Star from "../shared/Star.jsx";
 
 const Ratings = (props) => {
   const [reviews, setReviews] = useState([]);
@@ -79,6 +79,7 @@ const Ratings = (props) => {
 
   return (
     <div className="ratings-main-component" id="ratings">
+      <StarRating />
       <div>RATINGS & REVIEWS</div>
       <div className="ratings-flex-container">
         <RatingsCharts reviews={reviews} metaData={metaData}/>
