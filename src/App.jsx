@@ -10,6 +10,7 @@ axios.defaults.headers.common['Authorization'] = API_TOKEN;
 const App = (props) => {
 
   const [getProducts, setGetProducts] = useState({});
+  const [search, setSearch] = useState('')
 
   useEffect( () => {
     axios.get(url + 'products')
@@ -18,8 +19,14 @@ const App = (props) => {
       })
   }, [])
 
+  const handleSearch = function(event) {
+    event.preventDefault();
+    // this is the search functionality that Ben was working on
+  }
+
   return (
   <div>
+    <div>Project Catwalk<form><input type="text" onChange={ (e) => setSearch(e.target.value)}></input><input type="submit" onClick={(e) => handleSearch(e)}></input></form></div>
     <Overview getProducts={getProducts} />
     <RelatedSection products={getProducts} setProducts={setGetProducts}/>
     <Questions />
