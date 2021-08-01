@@ -26,6 +26,7 @@ const StarsBarCharts = props => {
     }
   })
 
+
   return (
     <div>
       <div className="ratings-flex-container">
