@@ -94,9 +94,10 @@ const RelatedProducts = (props) => {
         ) : (null)}
 
         {relatedProducts.slice(leftCount, rightCount).map((item, index) =>
-          <div onClick={() => {
+          <div key={index} className='related-products'>
+            <div onClick={() => {
             setShowModal(true);
-            setCompareItems(item);}} key={index} className='related-products'>
+            setCompareItems(item);}}>Modal Button</div>
             <img className='related-image' src={item.results[0].photos[0].thumbnail_url} />
             <div className='related-category'>{item.category}</div>
             <div className='related-name'>{item.name}</div>
