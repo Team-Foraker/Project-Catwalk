@@ -5,8 +5,7 @@ import { url, API_TOKEN } from "/config.js";
 import AverageStars from './AverageStars.jsx';
 import PercentRecommended from './PercentRecommended.jsx';
 import StarsBarCharts from './StarsBarCharts.jsx';
-import SizeBreakdown from './SizeBreakdown.jsx';
-import ComfortBreakdown from './ComfortBreakdown.jsx';
+import Breakdown from './Breakdown.jsx';
 
 const RatingsCharts = props => {
   return (
@@ -14,8 +13,7 @@ const RatingsCharts = props => {
       <AverageStars ratings={props.metaData.ratings}/>
       <PercentRecommended recommended={props.metaData.recommended}/>
       <StarsBarCharts ratings={props.metaData.ratings}/>
-      <SizeBreakdown characteristics={props.metaData.characteristics}/>
-      <ComfortBreakdown />
+      <Breakdown characteristics={props.metaData.characteristics}/>
     </div>
   )
 }
