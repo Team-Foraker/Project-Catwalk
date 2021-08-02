@@ -52,7 +52,9 @@ const Overview = function({getProducts}) {
   }, [product])
 
   useEffect( () => {
-    setCurrent(styles[0])
+    if (styles[0]) {
+      setCurrent(styles[0])
+    }
   }, [styles])
 
   const overviewStyle = {
@@ -62,12 +64,16 @@ const Overview = function({getProducts}) {
   }
 
   return (
-    <div style={overviewStyle}>
-      <ImageGallery style={currentStyle}/>
-      <ProductInfo product={product} currentStyle={currentStyle}/>
-      <StyleSelector styles={styles} setCurrent={setCurrent} currentStyle={currentStyle} />
-      <AddToCart currentStyle={currentStyle} isEmpty={isEmpty} setEmpty={setEmpty} />
-    </div>
+    <React.Fragment>
+      {currentStyle.style_id
+      ? <div style={overviewStyle}>
+          <ImageGallery style={currentStyle}/>
+          <ProductInfo product={product} currentStyle={currentStyle}/>
+          <StyleSelector styles={styles} setCurrent={setCurrent} currentStyle={currentStyle} />
+          <AddToCart currentStyle={currentStyle} isEmpty={isEmpty} setEmpty={setEmpty} />
+        </div>
+      : <div></div>}
+    </React.Fragment>
   )
 }
 
