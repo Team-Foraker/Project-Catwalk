@@ -25,12 +25,12 @@ const App = (props) => {
   }
 
   return (
-  <div>
+  <div id="app">
     <div>Project Catwalk<form><input type="text" onChange={ (e) => setSearch(e.target.value)}></input><input type="submit" onClick={(e) => handleSearch(e)}></input></form></div>
     <Overview getProducts={getProducts} />
     <RelatedSection products={getProducts} setProducts={setGetProducts}/>
-    <Questions />
-    <Ratings />
+    {/* <Questions /> */}
+    <Ratings product={getProducts}/>
   </div>)
 }
 
