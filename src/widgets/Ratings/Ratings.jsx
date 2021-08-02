@@ -11,20 +11,24 @@ const Ratings = (props) => {
   const [reviews, setReviews] = useState([]);
   const [metaData, setMetaData] = useState([]);
 
+  // console.log(props.product.id)
+  // props.product.id =19292
   useEffect(() => {
-    axios
-      .get(`${url}reviews?product_id=19289&sort=newest`, {
-        headers: { Authorization: API_TOKEN },
-      })
-      .then((response) => {
-        var sortedReviews = sortByRelevance(response.data.results);
-        setReviews(sortedReviews);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (props.product.id !== undefined) {
 
-      axios.get(`${url}reviews/meta?product_id=19289`, {
+      axios
+        .get(`${url}reviews?product_id=${props.product.id}&sort=newest&count=999999`, {
+          headers: { Authorization: API_TOKEN },
+        })
+        .then((response) => {
+          var sortedReviews = sortByRelevance(response.data.results);
+          setReviews(sortedReviews);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+      axios.get(`${url}reviews/meta?product_id=${props.product.id}`, {
         headers: { Authorization: API_TOKEN },
       })
         .then(response => {
@@ -33,7 +37,8 @@ const Ratings = (props) => {
         .catch((error) => {
           console.log(error);
         });
-  }, []);
+    }
+  }, [props.product.id]);
 
   var sortByRelevance = (reviews) => {
     var helpfulRev = [];
@@ -81,7 +86,7 @@ const Ratings = (props) => {
     <div className="ratings-main-component" id="ratings">
       <div>RATINGS & REVIEWS</div>
       <div className="ratings-flex-container">
-        <RatingsCharts reviews={reviews} metaData={metaData}/>
+        <RatingsCharts reviews={reviews} metaData={metaData} />
         <div className="ratings-reviews-container">
           <div>
             <Sort reviews={reviews} handleSort={handleSort} />

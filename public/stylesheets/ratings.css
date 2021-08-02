@@ -1,3 +1,8 @@
+#root {
+margin: 0 auto;
+width: 80%
+}
+
 .ratings-main-component {
   margin: 0 auto;
   width: 100%;
@@ -63,7 +68,7 @@
 }
 
 /* Size breakdown */
-.breakdown-flex-container {
+/* .breakdown-flex-container {
   display: flex;
 }
 
@@ -71,4 +76,27 @@
   width: 33%;
   background-color: #bbb;
   height: 10px;
+} */
+
+/* CharacteristicChart */
+.segment-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.segment {
+  width: 33%;
+  background-color: #ccc;
+  height: 8px;
+}
+
+.pointer {
+  position: relative;
+  z-index: 10;
+  top: 16px;
+}
+
+.segment-container > small {
+  color: #aaa;
 }
