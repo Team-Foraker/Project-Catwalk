@@ -10,6 +10,11 @@ const RelatedProducts = (props) => {
   const [rightCount, setRightCount] = useState(relatedProducts.length);
   const [showModal, setShowModal] = useState(false);
   const [compareItems, setCompareItems] = useState([]);
+  const [currentProduct, setCurrentProduct] = useState([]);
+
+
+
+
 
   // leftCount
   const increment = () => {
@@ -46,10 +51,14 @@ const RelatedProducts = (props) => {
     return Promise.all(promiseStyles);
   }
 
+
   useEffect(() => {
-    axios.get(url + 'products')
-      .then((res) => {
-        axios.get(url + `products/${res.data[1].id}/related`)
+    if (props.getProducts.id) {
+        axios.get(url+ `products/${props.getProducts.id}`)
+             .then((res) => {
+               setCurrentProduct(res.data)
+             })
+        axios.get(url + `products/${props.getProducts.id}/related`)
           .then((res) => {
             //res.data = [12030, 230124, 412033, 23013]
             getRelatedProducts(res.data)
@@ -79,8 +88,8 @@ const RelatedProducts = (props) => {
                   })
               })
           })
-      })
-  }, [])
+        }
+  }, [props.getProducts])
 
   return (
     <div>
@@ -95,9 +104,9 @@ const RelatedProducts = (props) => {
 
         {relatedProducts.slice(leftCount, rightCount).map((item, index) =>
           <div key={index} className='related-products'>
-            <div onClick={() => {
+            <button onClick={() => {
             setShowModal(true);
-            setCompareItems(item);}}>Modal Button</div>
+            setCompareItems(item);}}>Modal Button</button>
             <img className='related-image' src={item.results[0].photos[0].thumbnail_url} />
             <div className='related-category'>{item.category}</div>
             <div className='related-name'>{item.name}</div>
@@ -118,7 +127,7 @@ const RelatedProducts = (props) => {
           </i>
         ) : (null)}
 
-        <RelatedModal showModal={showModal} onClose={() => setShowModal(false)} chosenItem={compareItems}/>
+        <RelatedModal getProducts={props.getProducts} showModal={showModal} onClose={() => setShowModal(false)} chosenItem={compareItems} currentProduct={currentProduct}/>
 
       </div>
     </div>

@@ -21,7 +21,7 @@ const App = (props) => {
   return (
   <div>
     <Overview getProducts={getProducts} />
-    <RelatedSection products={getProducts} setProducts={setGetProducts}/>
+    <RelatedSection getProducts={getProducts}/>
     <Questions />
     <Ratings />
   </div>)
