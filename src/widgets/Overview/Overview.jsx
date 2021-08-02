@@ -51,6 +51,10 @@ const Overview = function({getProducts}) {
     }
   }, [product])
 
+  useEffect( () => {
+    setCurrent(styles[0])
+  }, [styles])
+
   const overviewStyle = {
     display: 'grid',
     gridTemplateColumns: '45vw 35vw',
