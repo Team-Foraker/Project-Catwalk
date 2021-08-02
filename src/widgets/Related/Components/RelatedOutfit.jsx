@@ -80,7 +80,7 @@ const RelatedOutfits = (props) => {
 
   return (
     <div>
-      <h3>Your Outfit</h3>
+      <h3>YOUR OUTFIT</h3>
       <div className='outfit-cards' style={{ display: 'flex', flexDirection: 'row', width: 'fitContent', position: 'relative' }}>
 
         {outfitLeftCount !== 0 ? (

@@ -93,7 +93,7 @@ const RelatedProducts = (props) => {
 
   return (
     <div>
-      <h3>Related Products Section</h3>
+      <h3>RELATED PRODUCTS</h3>
       <div className='related-cards'>
         {leftCount !== 0 ? (
           <i className='left-arrow' onClick={() => {
