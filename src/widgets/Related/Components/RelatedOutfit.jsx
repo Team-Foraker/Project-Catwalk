@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import Overview from '../../Overview/Overview.jsx'
+import "regenerator-runtime/runtime.js"
+const { url, API_TOKEN } = require('../../../../config.js');
+axios.defaults.headers.common['Authorization'] = API_TOKEN;
 
 
 
 const RelatedOutfits = (props) => {
 
-
-
   const initialState = {
+    id: '',
     category: '',
     name: '',
     default_price: '',
@@ -23,23 +24,63 @@ const RelatedOutfits = (props) => {
     ]
   }
 
-  const addOutfit = () => {
-
-
-  }
-
-  const removeOutfit = () => {
-
-  }
 
 
   const [outfitProducts, setOutfitProducts] = useState([initialState]);
   const [outfitLeftCount, setOutfitLeftCount] = useState(0);
   const [outfitRightCount, setOutfitRightCount] = useState(outfitProducts.length);
 
+  const getImagesAndCombine = async (product) => {
+    try {
+      const res = await axios.get(
+        url + `products/${props.getProducts.id}/styles`
+      );
+      return Object.assign({}, res.data, product);
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+
+  const addOutfit = async () => {
+    const productAndStyles = await getImagesAndCombine(props.getProducts);
+    setOutfitProducts((outfit) => {
+      outfit.push(productAndStyles);
+      const sort = [
+        ...new Map(outfitProducts.map((product) => [product['id'], product])).values()
+      ];
+      localStorage.setItem('foraker', JSON.stringify(sort));
+      return sort;
+    })
+  }
+
+  const removeOutfit = async (index) => {
+    setOutfitProducts((product) => {
+      let temp = product.slice();
+      temp.splice(index, 1);
+      localStorage.setItem('foraker', JSON.stringify(temp));
+      return temp;
+    })
+  }
+
+  useEffect(() => {
+    if (localStorage.getItem('foraker') !== null) {
+      let data = localStorage.getItem('foraker');
+      setOutfitRightCount(() => {
+        return JSON.parse(data).length;
+      });
+      setOutfitProducts((prev) => {
+        return JSON.parse(data);
+      });
+    }
+  }, [])
+
+
+
+
   return (
     <div>
-      <h3>Your Outfit Section</h3>
+      <h3>YOUR OUTFIT</h3>
       <div className='outfit-cards' style={{ display: 'flex', flexDirection: 'row', width: 'fitContent', position: 'relative' }}>
 
         {outfitLeftCount !== 0 ? (
@@ -56,14 +97,25 @@ const RelatedOutfits = (props) => {
         ) : (null)}
 
         {outfitProducts.slice(outfitLeftCount, outfitRightCount).map((item, index) =>
-          <div key={index} style={{ border: '1px solid black', width: '20%', margin: '3px', height: '250px' }}>
-            <img className='related-image' src={item.results[0].photos[0].thumbnail_url} />
+          <div className='related-products' key={index}>
+            {item.id !== '' ? (
+              <button onClick={() => {
+                removeOutfit(index);
+              }}>Remove</button>
+            ) : ('')}
+
+            <img className='related-image' onClick={() => {
+
+            }} onClick={() => {
+              addOutfit();
+
+            }} src={item.results[0].photos[0].thumbnail_url} />
             <div className='related-category'>{item.category}</div>
             <div className='related-name'>{item.name}</div>
-            {item.name !== '' ? (
+            {item.id !== '' ? (
               <div className='related-price'>${item.default_price}</div>
             ) : ('')}
-            {item.name !== '' ? (
+            {item.id !== '' ? (
               <div className='related-rating'>StarRating</div>
             ) : ('')}
           </div>
@@ -77,7 +129,6 @@ const RelatedOutfits = (props) => {
           }}>
           </i>
         ) : (null)}
-
       </div>
     </div>
   )
