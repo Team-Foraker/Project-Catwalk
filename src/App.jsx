@@ -25,13 +25,18 @@ const App = (props) => {
   }
 
   return (
-  <div id="app">
-    <div>Project Catwalk<form><input type="text" onChange={ (e) => setSearch(e.target.value)}></input><input type="submit" onClick={(e) => handleSearch(e)}></input></form></div>
-    <Overview getProducts={getProducts} />
-    <RelatedSection products={getProducts} setProducts={setGetProducts}/>
-    {/* <Questions /> */}
-    <Ratings product={getProducts}/>
-  </div>)
+    <React.Fragment>
+      {getProducts.id
+      ? <div id="app">
+        <div>Project Catwalk<form><input type="text" onChange={ (e) => setSearch(e.target.value)}></input><input type="submit" onClick={(e) => handleSearch(e)}></input></form></div>
+        <Overview getProducts={getProducts} />
+        <RelatedSection getProducts={getProducts} setProducts={setGetProducts}/>
+        {/* <Questions /> */}
+        <Ratings product={getProducts}/>
+      </div>
+      : <div></div>}
+    </React.Fragment>
+  )
 }
 
 export default App;
