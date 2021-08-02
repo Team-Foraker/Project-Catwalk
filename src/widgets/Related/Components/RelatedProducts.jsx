@@ -102,8 +102,9 @@ const RelatedProducts = (props) => {
           </i>
         ) : (null)}
 
-        {relatedProducts.slice(leftCount, rightCount).map((item, index) =>
-          <div key={index} className='related-products'>
+        {relatedProducts.slice(leftCount, rightCount).map((item, index) => {
+          if (index < 4) {
+          return (<div key={index} className='related-products'>
             <button onClick={() => {
             setShowModal(true);
             setCompareItems(item);}}>Modal Button</button>
@@ -118,9 +119,12 @@ const RelatedProducts = (props) => {
             ) : (<div className='related-price'>${item.default_price}</div>)}
             <div className='related-star'>StarRating</div>
           </div>
+          )
+          }
+        }
         )}
 
-        {leftCount !== rightCount - 1 ? (
+        {leftCount !== rightCount - 4 ? (
           <i className='right-arrow' onClick={() => {
             increment();
           }}>

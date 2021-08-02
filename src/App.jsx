@@ -15,7 +15,7 @@ const App = (props) => {
   useEffect( () => {
     axios.get(url + 'products')
       .then( (products) => {
-        setGetProducts(products.data[0])
+        setGetProducts(products.data[2])
       })
   }, [])
 
