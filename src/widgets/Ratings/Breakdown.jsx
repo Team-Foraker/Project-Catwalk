@@ -15,7 +15,6 @@ const Breakdown = props => {
       var catName = category[0];
       var catObj = category[1];
       var labels = makeLabels(catName);
-      console.log(labels)
 
       return <CharacteristicChart key={index} catName={catName} catObj={catObj} labels={labels}/>
     })
