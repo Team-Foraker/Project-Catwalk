@@ -7,6 +7,7 @@ axios.defaults.headers.common['Authorization'] = API_TOKEN;
 
 
 const RelatedOutfits = (props) => {
+  console.log(props)
 
   const initialState = {
     id: '',
@@ -73,7 +74,7 @@ const RelatedOutfits = (props) => {
         return JSON.parse(data);
       });
     }
-  }, [])
+  }, [localStorage.getItem('foraker').length])
 
 
 
