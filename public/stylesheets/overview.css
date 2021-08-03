@@ -17,6 +17,7 @@
   border-style: solid;
   border-width: thin;
   position: relative;
+  justify-content: center;
 }
 
 #vertical-carousel {
@@ -39,12 +40,12 @@
 }
 
 .arrow {
-  top: 50%;
   width: 0;
   height: 0;
   border-top: 15px solid transparent;
   border-bottom: 15px solid transparent;
   border-right: 15px solid grey;
+  z-index: 1;
 }
 
 .up {
@@ -53,6 +54,14 @@
 
 .down {
   transform: rotate(270deg);
+}
+
+.right {
+  transform: rotate(180deg);
+}
+
+#vertical-carousel .arrow {
+  margin-left: 30%;
 }
 
 .highlighted {
@@ -74,4 +83,35 @@
   border-style: solid;
   border-width: thin;
   object-fit: cover;
+}
+
+#horizontal-carousel {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  border-style: solid;
+  height: 100%;
+  width: 100%;
+}
+
+#horizontal-carousel .main-image {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  cursor: zoom-in;
+  object-fit: cover;
+}
+
+#horizontal-carousel .left {
+  top: 50%;
+  left: 10%;
+  position: absolute;
+}
+
+#horizontal-carousel .right {
+  top: 50%;
+  left: 95%;
+  position: absolute;
 }

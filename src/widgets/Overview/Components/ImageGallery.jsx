@@ -36,14 +36,7 @@ const ImageGallery = function({styles, style}) {
   return (
     <div id="image-gallery" >
       <VerticalCarousel photos={style.photos} index={index} updateIndex={updateIndex} base={base} />
-      {index !== 0
-      ? <button className="left-arrow" value={-1} onClick={(e) => {updateIndex(e)}} style={ {"position": "absolute", "zIndex": '1'} } ></button>
-      : <div></div>}
-      { style ? <HorizontalCarousel photos={style.photos} index={index} setShowModal={setShowModal}/> : <HorizontalCarousel />  }
-      {index !== style.photos.length -1
-      ? <button className="right-arrow" value={1} onClick={(e) => {updateIndex(e)}} style={ {"float": "right", "position": "relative", "zIndex": '2'} }></button>
-      : <div></div>}
-
+      { style ? <HorizontalCarousel photos={style.photos} index={index} setShowModal={setShowModal} updateIndex={updateIndex} /> : <HorizontalCarousel />}
       <ExpandedView showModal={showModal} onClose={() => setShowModal(false)} photo={style.photos[index]} index={index} style={style} updateIndex={(e) => updateIndex(e)} />
     </div>
   )
