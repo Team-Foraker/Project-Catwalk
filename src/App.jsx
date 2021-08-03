@@ -19,6 +19,7 @@ const App = (props) => {
       })
   }, [])
 
+
   const handleSearch = function(event) {
     event.preventDefault();
     // this is the search functionality that Ben was working on
@@ -30,7 +31,7 @@ const App = (props) => {
       ? <div id="app">
         <div>Project Catwalk<form><input type="text" onChange={ (e) => setSearch(e.target.value)}></input><input type="submit" onClick={(e) => handleSearch(e)}></input></form></div>
         <Overview getProducts={getProducts} />
-        <RelatedSection getProducts={getProducts} setProducts={setGetProducts}/>
+        <RelatedSection getProducts={getProducts} />
         {/* <Questions /> */}
         <Ratings product={getProducts}/>
       </div>

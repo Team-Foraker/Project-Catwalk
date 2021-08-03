@@ -96,29 +96,34 @@ const RelatedOutfits = (props) => {
           </i>
         ) : (null)}
 
-        {outfitProducts.slice(outfitLeftCount, outfitRightCount).map((item, index) =>
-          <div className='related-products' key={index}>
-            {item.id !== '' ? (
-              <button onClick={() => {
-                removeOutfit(index);
-              }}>Remove</button>
-            ) : ('')}
+        {outfitProducts.slice(outfitLeftCount, outfitRightCount).map((item, index) => {
+          if (item.results[0]) {
+            return (
+              <div className='related-products' key={index}>
+                {item.id !== '' ? (
+                  <button onClick={() => {
+                    removeOutfit(index);
+                  }}>Remove</button>
+                ) : ('')}
 
-            <img className='related-image' onClick={() => {
+                <img className='related-image' onClick={() => {
 
-            }} onClick={() => {
-              addOutfit();
+                }} onClick={() => {
+                  addOutfit();
 
-            }} src={item.results[0].photos[0].thumbnail_url} />
-            <div className='related-category'>{item.category}</div>
-            <div className='related-name'>{item.name}</div>
-            {item.id !== '' ? (
-              <div className='related-price'>${item.default_price}</div>
-            ) : ('')}
-            {item.id !== '' ? (
-              <div className='related-rating'>StarRating</div>
-            ) : ('')}
-          </div>
+                }} src={item.results[0].photos[0].thumbnail_url} />
+                <div className='related-category'>{item.category}</div>
+                <div className='related-name'>{item.name}</div>
+                {item.id !== '' ? (
+                  <div className='related-price'>${item.default_price}</div>
+                ) : ('')}
+                {item.id !== '' ? (
+                  <div className='related-rating'>StarRating</div>
+                ) : ('')}
+              </div>
+            )
+          }
+        }
         )}
 
         {outfitLeftCount !== outfitRightCount - 1 ? (

@@ -13,9 +13,6 @@ const RelatedProducts = (props) => {
   const [currentProduct, setCurrentProduct] = useState([]);
 
 
-
-
-
   // leftCount
   const increment = () => {
     setLeftCount((leftCount) => leftCount + 1)
@@ -63,6 +60,7 @@ const RelatedProducts = (props) => {
             //res.data = [12030, 230124, 412033, 23013]
             getRelatedProducts(res.data)
               .then((res) => {
+
                 // res === array of related products
 
                 let arrayRP = res.map((rp) => {

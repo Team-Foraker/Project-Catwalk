@@ -9,8 +9,6 @@ axios.defaults.headers.common['Authorization'] = API_TOKEN;
 
 const RelatedSection = (props) => {
 
-
-
   return (
     <div>
       <RelatedProducts getProducts={props.getProducts}/>
