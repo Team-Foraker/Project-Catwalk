@@ -7,7 +7,7 @@ axios.defaults.headers.common['Authorization'] = API_TOKEN;
 
 
 const RelatedOutfits = (props) => {
-  console.log(props)
+
 
   const initialState = {
     id: '',
