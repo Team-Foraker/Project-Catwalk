@@ -2,6 +2,7 @@ import React from "react";
 import moment from "moment";
 import axios from "axios";
 import {url, API_TOKEN} from "/config.js";
+import AverageStarRating from '../shared/AverageStarRating.jsx';
 
 const ReviewItem = (props) => {
   var review = props.review;
@@ -29,8 +30,7 @@ const ReviewItem = (props) => {
     <div className="review-item">
       <div className="ratings-flex-container">
         <div>
-          Star Rating here
-          <span>{review.rating}</span>
+          <AverageStarRating average={review.rating}/>
         </div>
         <div>
           <span>{review.reviewer_name}, </span>
