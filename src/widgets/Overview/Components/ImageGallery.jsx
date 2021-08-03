@@ -14,11 +14,7 @@ const ImageGallery = function({styles, style}) {
     "width": "400px",
     "borderStyle": "solid",
     "borderWidth": "thin",
-    "position": "relative",
-    "gridRowStart": "1",
-    "gridRowEnd": "3",
-    "gridColumnStart": "1",
-    "gridColumnEnd": "1"
+    "position": "relative"
   }
 
   useEffect( () => {
@@ -34,11 +30,11 @@ const ImageGallery = function({styles, style}) {
     event.preventDefault();
     event.target.value !== undefined
     ? setIndex(index + JSON.parse(event.target.value))
-    : setIndex(JSON.parse(event.target.attributes['1'].nodeValue));
+    : setIndex(JSON.parse(event.target.attributes['2'].nodeValue));
   }
 
   return (
-    <div style={galleryStyle} >
+    <div id="image-gallery" >
       <VerticalCarousel photos={style.photos} index={index} updateIndex={updateIndex} base={base} />
       {index !== 0
       ? <button className="left-arrow" value={-1} onClick={(e) => {updateIndex(e)}} style={ {"position": "absolute", "zIndex": '1'} } ></button>
