@@ -5,7 +5,6 @@ const CharacteristicScale = props => {
 
   useEffect(() => {
     if (props.char) {
-      console.log(props.char[1].id)
       setLabels(labelHelper(props.char[0]));
     }
   }, [props.char]);
