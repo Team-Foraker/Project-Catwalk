@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { url, API_TOKEN } from "/config.js";
 import StarRating from '../shared/StarRating.jsx';
 import CharacteristicScale from './CharacteristicScale.jsx';
+
 
 const CreateReview = props => {
   const [hideModal, setHideModal] = useState();
@@ -30,8 +33,8 @@ const CreateReview = props => {
   }
 
   var handleSubmit = (event) => {
-    event.preventDefault();
     console.log('submitted');
+    var modal = document.getElementsByClassName('ratings-modal-content')[0];
 
     var postObj = {
       product_id: props.product,
@@ -43,7 +46,15 @@ const CreateReview = props => {
       email: email,
       characteristics: charObj,
     }
-    console.log(postObj)
+    console.log(postObj);
+
+    axios.post(`${url}reviews`, postObj)
+      .then(response => {
+        console.log(response)
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   var onValueChange = (event, group) => {
@@ -127,7 +138,6 @@ const CreateReview = props => {
 
         </div>
       </div>
-
     </div>
   )
 }
