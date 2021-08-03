@@ -35,9 +35,18 @@
 .related-products {
   border: 1px solid black;
   width: 150px;
-  margin: 3px;
-  height: 350px;
+  margin: 10px;
+  height: 300px;
+  transition: 0.3s;
 }
+
+.related-products:hover {
+  border: 1px solid black;
+  transition: 0.3s;
+  transform: scale(1.05);
+}
+
+
 
 .related-image {
   height: 60%;
@@ -103,4 +112,12 @@
 .features {
   display: flex;
   align-self: center;
+}
+
+.star-image {
+  position: absolute;
+  padding-left: 120px;
+  padding-top: 5px;
+  width: 25px;
+  height: 25px;
 }
