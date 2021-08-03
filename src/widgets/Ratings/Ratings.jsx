@@ -5,6 +5,7 @@ import StarRating from "../shared/StarRating.jsx";
 import RatingsCharts from "./RatingsCharts.jsx";
 import ReviewsList from "./ReviewsList.jsx";
 import Sort from "./Sort.jsx";
+
 // import Star from "../shared/Star.jsx";
 
 const Ratings = (props) => {
@@ -88,7 +89,7 @@ const Ratings = (props) => {
         <div className="ratings-reviews-container">
           <div>
             <Sort reviews={reviews} handleSort={handleSort} />
-            <ReviewsList reviews={reviews} />
+            <ReviewsList product={props.product.id} reviews={reviews} characteristics={metaData.characteristics}/>
           </div>
         </div>
       </div>
