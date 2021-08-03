@@ -11,8 +11,6 @@ const Ratings = (props) => {
   const [reviews, setReviews] = useState([]);
   const [metaData, setMetaData] = useState([]);
 
-  // console.log(props.product.id)
-  // props.product.id =19292
   useEffect(() => {
     if (props.product.id !== undefined) {
 
