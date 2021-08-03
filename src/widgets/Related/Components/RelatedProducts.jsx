@@ -118,6 +118,7 @@ const RelatedProducts = (props) => {
             </div>
             ) : (<div className='related-price'>${item.default_price}</div>)}
             <div className='related-star'>StarRating</div>
+            
           </div>
           )
           }
