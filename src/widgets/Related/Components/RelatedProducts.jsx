@@ -57,7 +57,6 @@ const RelatedProducts = (props) => {
              })
         axios.get(url + `products/${props.getProducts.id}/related`)
           .then((res) => {
-            console.log(res)
             //res.data = [12030, 230124, 412033, 23013]
             getRelatedProducts(res.data)
               .then((res) => {
