@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from "react";
 import ReviewItem from "./ReviewItem.jsx";
+import CreateReview from './CreateReview.jsx'
 
 const ReviewsList = props => {
   var reviewsArr = props.reviews;
   const [itemsToShow, setItemsToShow] = useState(2);
+  const [showModal, setShowModal] = useState(false);
 
+  var modalToggle = () => {
+    setShowModal(true);
+  }
+
+  var modalOff = () => {
+    setShowModal(false);
+  }
 
   return (
     <div>
-
-      Reviews here
-
       {props.reviews.map((rev, index) => {
         if (index < itemsToShow) {
           return <ReviewItem key={rev.review_id} review={rev} index={index} />;
@@ -23,8 +29,9 @@ const ReviewsList = props => {
             MORE REVIEWS
           </button>
         )}
-        <button>ADD A REVIEW +</button>
+        <button onClick={modalToggle}>ADD A REVIEW +</button>
       </div>
+      <CreateReview status={showModal} modalOff={modalOff}/>
     </div>
   );
 };
