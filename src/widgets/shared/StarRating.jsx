@@ -7,7 +7,7 @@ import regular from '@fortawesome/fontawesome-free-regular';
 
 fontawesome.library.add(solid, regular);
 
-const StarRating = () => {
+const StarRating = (props) => {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
   var index = 6;
@@ -21,11 +21,11 @@ const StarRating = () => {
             type="button"
             key={index}
             className={index <= (hover || rating) ? "on" : "off"}
-            onClick={() => setRating(index)}
+            onClick={() => {setRating(index); props.onClick(event)}}
             onMouseEnter={() => setHover(index)}
             onMouseLeave={() => setHover(rating)}
           >
-            <span className="star">&#9734;</span>
+            {index <= rating ? <span className="star" data-index={index}>&#9733;</span> : <span className="star" data-index={index}>&#9734;</span> }
           </button>
         );
       })}

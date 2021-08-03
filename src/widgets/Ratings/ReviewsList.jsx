@@ -31,7 +31,7 @@ const ReviewsList = props => {
         )}
         <button onClick={modalToggle}>ADD A REVIEW +</button>
       </div>
-      <CreateReview status={showModal} modalOff={modalOff}/>
+      <CreateReview product={props.product} status={showModal} modalOff={modalOff} characteristics={props.characteristics}/>
     </div>
   );
 };

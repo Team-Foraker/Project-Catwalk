@@ -93,7 +93,7 @@ width: 80%
 
 .pointer {
   position: relative;
-  z-index: 10;
+  z-index: 1;
   top: 16px;
 }
 
@@ -102,10 +102,10 @@ width: 80%
 }
 
 /* The Modal (background) */
-.modal {
+.ratings-modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 2; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -116,18 +116,18 @@ width: 80%
 }
 
 /* Modal Content/Box */
-.modal-content {
+.ratings-modal-content {
   background-color: #fefefe;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 90%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
 .close {
   color: #aaa;
-  float: right;
+  /* float: right; */
   font-size: 28px;
   font-weight: bold;
 }
@@ -137,4 +137,18 @@ width: 80%
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+.ratings-radio-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.scale-container {
+  margin: 0px auto;
+}
+
+.scale-container > small{
+  margin-bottom: 10px;
+  color: #aaa;
 }

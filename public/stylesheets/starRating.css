@@ -3,6 +3,7 @@ button {
   border: none;
   outline: none;
   cursor: pointer;
+  padding: 0;
 }
 /* .on {
   color: #000;
@@ -14,6 +15,7 @@ button {
 .star-rating {
   unicode-bidi: bidi-override;
   direction: rtl;
+  text-align: left;
 }
 .star-rating > button > span {
   display: inline-block;
