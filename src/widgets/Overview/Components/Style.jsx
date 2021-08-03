@@ -14,8 +14,8 @@ const Style = function({style, currentStyle, setCurrent}) {
   return (
     <div>
       { style.style_id === currentStyle.style_id
-      ? <React.Fragment><img style={imgStyle} className='styleThumbnail' src={style.photos[0].thumbnail_url} onClick={() => {setCurrent(style)}} /><Checkmark /></React.Fragment>
-      : <img style={imgStyle} className='styleThumbnail' src={style.photos[0].thumbnail_url} onClick={() => {setCurrent(style)}} />}
+      ? <React.Fragment><img className="thumbnail" src={style.photos[0].thumbnail_url} onClick={() => {setCurrent(style)}} /><Checkmark /></React.Fragment>
+      : <img className="thumbnail" src={style.photos[0].thumbnail_url} onClick={() => {setCurrent(style)}} />}
     </div>
   )
 }
