@@ -43,3 +43,21 @@ button {
   display: inline-block;
   overflow: hidden;
 }
+
+.hollow-stars {
+  width: 75px;
+  height: 14px;
+  background-image: url('../images/hollowSt.png');
+  background-repeat: repeat-x;
+  background-size: contain;
+  position: relative;
+}
+
+.solid-stars {
+  /* width: 75px; */
+  height: 14px;
+  background-image: url('../images/solidSt.png');
+  background-repeat: repeat-x;
+  background-size: contain;
+  position: absolute;
+}
