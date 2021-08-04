@@ -1,23 +1,28 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 const AverageStarRating = props => {
-  var average = (props.average * 12).toFixed(2);
+
+  const [average, setAverage] = useState(0);
+
+  const roundAverage = (average) => {
+      var inv = 1.0 / 0.25;
+      return Math.round(average * inv) / inv;
+  }
+
+  useEffect(() => {
+    if (props.average) {
+      var newAv = parseFloat(props.average);
+      newAv = roundAverage(newAv);
+      newAv = ((newAv/5) * 100).toFixed(2)
+      setAverage(newAv);
+    }
+  })
 
   return (
     <div className="star-chart-container">
       <div className="hollow-stars">
-        <span>&#9734;</span>
-        <span>&#9734;</span>
-        <span>&#9734;</span>
-        <span>&#9734;</span>
-        <span>&#9734;</span>
-      </div>
-      <div className="solid-stars" style={{width: `${average}px`}}>
-        <span>&#9733;</span>
-        <span>&#9733;</span>
-        <span>&#9733;</span>
-        <span>&#9733;</span>
-        <span>&#9733;</span>
+        <div className="solid-stars" style={{ display: 'flex', width: `${average}%` }}>
+        </div>
       </div>
     </div>
   )
