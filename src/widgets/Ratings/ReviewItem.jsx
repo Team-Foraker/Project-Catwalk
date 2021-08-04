@@ -40,6 +40,13 @@ const ReviewItem = (props) => {
       <div className="review-summary">{review.summary}</div>
       <div className="review-body">
         <ReviewBody body={review.body}/>
+        <div>
+          {
+            review.photos.map((photo) => {
+              return <img key={photo.url} className="review-thumbnail" src={photo.url} width="50px" height="50px"/>
+            })
+          }
+        </div>
       </div>
       {review.recommend && <div>&#10003; I recommend this product</div>}
       <div>{review.response}</div>

@@ -48,6 +48,10 @@ font-family: 'Lato', sans-serif;
   width: 60%;
 }
 
+.review-thumbnail {
+
+}
+
 #helpfulness-yes,
 #review-report {
   text-decoration: underline;

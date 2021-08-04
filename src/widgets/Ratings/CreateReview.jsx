@@ -15,15 +15,22 @@ const CreateReview = props => {
   const [body, setBody] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [imageURLArr, setImageURLArr] = useState([]);
+  const [imageURL, setImageURL] = useState('');
 
   useEffect(() => {
     if (props.characteristics !== undefined) {
       setCharacteristics(Object.entries(props.characteristics));
     }
-  }, [props.characteristics])
+  }, [props.characteristics, imageURLArr])
 
   var handleRatingClick = (event) => {
     setAverageRating(parseInt(event.target.getAttribute('data-index')));
+  }
+
+  var handleAddImage = () => {
+      setImageURLArr([...imageURLArr, imageURL]);
+      setImageURL('');
   }
 
   var handleScaleClick = (event) => {
@@ -36,7 +43,6 @@ const CreateReview = props => {
     var isValid = true;
 
     var emailPattern = new RegExp(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/)
-
     if (averageRating === 0) {
       isValid = false;
     }
@@ -51,6 +57,7 @@ const CreateReview = props => {
   }
 
   var handleSubmit = (event) => {
+    event.preventDefault();
     // console.log('submitted');
     var recommend = recommend === 'true' ? true : false;
     var validated = formValidate();
@@ -64,13 +71,14 @@ const CreateReview = props => {
         body: body,
         name: name,
         email: email,
+        photos: imageURLArr,
         characteristics: charObj,
       }
-      alert(postObj.product_id)
+      // alert(postObj.product_id)
 
       axios.post(`${url}reviews`, postObj)
         .then(response => {
-          // console.log(response)
+          console.log(response)
         })
         .catch(err => {
           console.log(err)
@@ -141,6 +149,19 @@ const CreateReview = props => {
             <div>
               <label htmlFor="">Review body (mandatory)</label>
               <textarea maxLength="1000" placeholder="Why did you like the product or not?" value={body} onChange={() => onChange(event, setBody)} />
+            </div>
+
+            <div>
+              <label htmlFor="">Image urls</label>
+              <div className="addedImages">
+                {
+                  imageURLArr.map((imageURL) => {
+                    return <div key={imageURL.toString()}>{imageURL}</div>
+                  })
+                }
+              </div>
+              <input onChange={() => onValueChange(event, setImageURL)} value={imageURL} type="text" />
+              <button onClick={handleAddImage}>Add image</button>
             </div>
 
             <div>
