@@ -51,7 +51,7 @@ const CreateReview = props => {
   }
 
   var handleSubmit = (event) => {
-    console.log('submitted');
+    // console.log('submitted');
     var recommend = recommend === 'true' ? true : false;
     var validated = formValidate();
     console.log(validated)
@@ -70,14 +70,14 @@ const CreateReview = props => {
 
       axios.post(`${url}reviews`, postObj)
         .then(response => {
-          console.log(response)
+          // console.log(response)
         })
         .catch(err => {
           console.log(err)
         })
     } else {
       event.preventDefault();
-      console.log(postObj)
+      // console.log(postObj)
     }
   }
 
