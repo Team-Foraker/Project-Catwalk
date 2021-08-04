@@ -31,33 +31,38 @@ button {
 
 /* Average Star Rating */
 .star-chart-container {
-  position: relative;
+  /* position: relative; */
 }
 .hollow-stars {
   display: inline-block;
   position: absolute;
 }
 
-.solid-stars {
+/* .solid-stars {
   position: absolute;
   display: inline-block;
   overflow: hidden;
-}
+} */
 
 .hollow-stars {
-  width: 75px;
+  width: 73px;
   height: 14px;
+  max-height: 14px;
+  max-width: 73px;
   background-image: url('../images/hollowSt.png');
   background-repeat: repeat-x;
   background-size: contain;
-  position: relative;
 }
 
 .solid-stars {
   /* width: 75px; */
   height: 14px;
+  max-height: 14px;
+
   background-image: url('../images/solidSt.png');
   background-repeat: repeat-x;
   background-size: contain;
   position: absolute;
+  top: 0;
+  left: 0;
 }
