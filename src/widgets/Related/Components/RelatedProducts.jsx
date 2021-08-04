@@ -130,12 +130,13 @@ const RelatedProducts = (props) => {
 
         {relatedProducts.slice(leftCount, rightCount).map((item, index) => {
           if (index < 4) {
-            return (<div key={index} className='related-products'>
+            return (
+
+            <div key={index} className={index === 3 ? 'last-related-product' : 'related-products'}>
               <img className='star-image' src={'https://clipart.info/images/ccovers/1559839516star-png-1476.png'} onClick={() => {
                 setShowModal(true);
                 setCompareItems(item);}}/>
               <img className='related-image' src={item.results[0].photos[0].thumbnail_url} />
-
               <div className='related-category'>{item.category}</div>
               <div className='related-name'>{item.name}</div>
               {item.sale_price ? (
