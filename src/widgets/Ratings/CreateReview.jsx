@@ -54,7 +54,7 @@ const CreateReview = props => {
     // console.log('submitted');
     var recommend = recommend === 'true' ? true : false;
     var validated = formValidate();
-    console.log(validated)
+    // console.log(validated)
     if (validated) {
       var postObj = {
         product_id: props.product,
