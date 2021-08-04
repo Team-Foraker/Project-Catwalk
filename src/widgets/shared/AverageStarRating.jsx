@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AverageStarRating = props => {
-  var average = (props.average * 16).toFixed(2);
+  var average = (props.average * 12).toFixed(2);
 
   return (
     <div className="star-chart-container">

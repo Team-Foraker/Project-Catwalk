@@ -16,7 +16,7 @@ const ReviewsList = props => {
   }
 
   return (
-    <div>
+    <div className="reviews-list-container">
       {props.reviews.map((rev, index) => {
         if (index < itemsToShow) {
           return <ReviewItem key={rev.review_id} review={rev} index={index} />;
@@ -25,11 +25,11 @@ const ReviewsList = props => {
 
       <div>
         {itemsToShow < props.reviews.length && (
-          <button onClick={() => setItemsToShow(itemsToShow + 2)}>
+          <button onClick={() => setItemsToShow(itemsToShow + 2)} className="reviews-btn">
             MORE REVIEWS
           </button>
         )}
-        <button onClick={modalToggle}>ADD A REVIEW +</button>
+        <button onClick={modalToggle} className="reviews-btn">ADD A REVIEW +</button>
       </div>
       <CreateReview product={props.product} status={showModal} modalOff={modalOff} characteristics={props.characteristics}/>
     </div>
