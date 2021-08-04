@@ -3,7 +3,7 @@ import moment from "moment";
 import axios from "axios";
 import {url, API_TOKEN} from "/config.js";
 import AverageStarRating from '../shared/AverageStarRating.jsx';
-
+import ReviewBody from './ReviewBody.jsx';
 const ReviewItem = (props) => {
   var review = props.review;
 
@@ -38,7 +38,9 @@ const ReviewItem = (props) => {
         </div>
       </div>
       <div className="review-summary">{review.summary}</div>
-      <div className="review-body">{review.body}</div>
+      <div className="review-body">
+        <ReviewBody body={review.body}/>
+      </div>
       {review.recommend && <div>&#10003; I recommend this product</div>}
       <div>{review.response}</div>
       <div>
