@@ -144,7 +144,7 @@ const RelatedProducts = (props) => {
                   <div className='related-price'>${item.sale_price}</div>
                 </div>
               ) : (<div className='related-price'>${item.default_price}</div>)}
-              <AverageStarRating average={average[index]} />
+              <AverageStarRating className='related-rating' average={average[index]} />
 
             </div>
             )
