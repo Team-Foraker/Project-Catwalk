@@ -13,7 +13,7 @@ const HorizontalCarousel = function({photos, index, setShowModal, updateIndex}) 
       {index !== 0
       ? <button className="left arrow" value={-1} onClick={(e) => {updateIndex(e)}} ></button>
       : <div className="left arrow invisible"></div>}
-      { photos ? <img src={photo.url} className="main-image" onClick={() => setShowModal(true)}></img> : <img></img> }
+      { photos ? <img src={photo.url} className="main-image default" onClick={() => setShowModal(true)}></img> : <img></img> }
       {index !== photos.length -1
       ? <button className="right arrow" value={1} onClick={(e) => {updateIndex(e)}} ></button>
       : <div className="right arrow invisible"></div>}

@@ -28,7 +28,7 @@ const CartButton = function({sizes, selection, selectedQuantity, currentStyle, s
   }
 
   return (
-    <button onClick={ (e) => {postToCart(e, currentStyle, sizes, selection, selectedQuantity)}}>Add to Cart</button>
+    <button id="cart-button" onClick={ (e) => {postToCart(e, currentStyle, sizes, selection, selectedQuantity)}}>Add to Cart <span className="right-edge">+</span></button>
   )
 }
 

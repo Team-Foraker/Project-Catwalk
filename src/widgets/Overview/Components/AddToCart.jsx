@@ -33,34 +33,25 @@ const AddToCart = function({currentStyle, isEmpty, setEmpty}) {
     setQuantity(event.target.value)
   }
 
-  const cartStyle = {
-    gridColumnStart: '2',
-    gridColumnEnd: '2',
-    gridRowStart: '3'
-  }
-
   return (
-    <form style={cartStyle}>
+    <form id="cart">
       {!isEmpty
       ? <div/>
-      : <span style={ {'color': 'red'} }>Please select size</span>}
+      : <span className="error">Please select size</span>}
+      <div className="flex-container">
       {sizes[0] !== "null"
       ? <SizeSelection sizes={sizes} currentStyle={currentStyle} selectSize={selectSize} />
       : <select disabled ><option>OUT OF STOCK</option></select>}
       {selection !== ""
       ? <QuantitySelection selection={selection} currentStyle={currentStyle} selectQuantity={selectQuantity} />
-      : <select disabled><option>-</option></select>}
-      {/* <select name="Quantity" onChange={ (e) => {selectQuantity(e)}}>
-        {currentStyle.skus[selection]
-        ? quantityFiller(selection).map( (quantity) => {
-          return <option key={quantity} value={quantity}>{quantity}</option>
-        })
-        : <option></option>}
-      </select> */}
+      : <select disabled id="quantity"><option>—</option></select>}
+      </div>
+      <div className="flex-container">
       {sizes[0] !== "null"
       ? <CartButton sizes={sizes} selection={selection} selectedQuantity={selectedQuantity} currentStyle={currentStyle} setEmpty={setEmpty} />
       : <div></div>}
       {/* <button>Star Symbol</button> */}
+      </div>
     </form>
   )
 }
