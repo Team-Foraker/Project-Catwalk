@@ -8,6 +8,7 @@ axios.defaults.headers.common['Authorization'] = API_TOKEN;
 
 const RelatedOutfits = (props) => {
 
+
   const initialState = {
     id: '',
     category: '',
@@ -73,7 +74,7 @@ const RelatedOutfits = (props) => {
         return JSON.parse(data);
       });
     }
-  }, [])
+  }, [localStorage.getItem('foraker').length])
 
 
 
@@ -101,32 +102,28 @@ const RelatedOutfits = (props) => {
             return (
               <div className='related-products' key={index}>
                 {item.id !== '' ? (
-                  <button onClick={() => {
+                  <img className='star-image' onClick={() => {
                     removeOutfit(index);
-                  }}>Remove</button>
-                ) : ('')}
-
+                  }} src={'https://www.lifepng.com/wp-content/uploads/2020/12/Letter-X-Roundlet-png-hd.png'} />
+                ) : (null)}
                 <img className='related-image' onClick={() => {
-
-                }} onClick={() => {
                   addOutfit();
-
                 }} src={item.results[0].photos[0].thumbnail_url} />
                 <div className='related-category'>{item.category}</div>
                 <div className='related-name'>{item.name}</div>
                 {item.id !== '' ? (
                   <div className='related-price'>${item.default_price}</div>
-                ) : ('')}
+                ) : (null)}
                 {item.id !== '' ? (
                   <div className='related-rating'>StarRating</div>
-                ) : ('')}
+                ) : (null)}
               </div>
             )
           }
         }
         )}
 
-        {outfitLeftCount !== outfitRightCount - 1 ? (
+        {outfitLeftCount !== outfitRightCount - 4 ? (
           <i className='right-arrow' onClick={() => {
             setOutfitLeftCount((outfitLeftCount) => {
               return outfitLeftCount + 1;
