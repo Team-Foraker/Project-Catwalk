@@ -57,20 +57,27 @@ const Overview = function({getProducts}) {
     }
   }, [styles])
 
-  const overviewStyle = {
-    display: 'grid',
-    gridTemplateColumns: '45vw 35vw',
-    gridTemplateRows: '1fr 1fr 1fr'
-  }
+  // const overviewStyle = {
+  //   display: 'grid',
+  //   gridTemplateColumns: '45vw 35vw',
+  //   gridTemplateRows: '1fr 1fr 1fr'
+  // }
+
+  // const overviewStyle = {
+  //   display: 'flex',
+  //   flexDirection: 'row'
+  // }
 
   return (
     <React.Fragment>
       {currentStyle.style_id
-      ? <div style={overviewStyle}>
+      ? <div id="overview-widget" >
           <ImageGallery style={currentStyle}/>
+          <div id='overview-second-column'>
           <ProductInfo product={product} currentStyle={currentStyle}/>
           <StyleSelector styles={styles} setCurrent={setCurrent} currentStyle={currentStyle} />
           <AddToCart currentStyle={currentStyle} isEmpty={isEmpty} setEmpty={setEmpty} />
+          </div>
         </div>
       : <div></div>}
     </React.Fragment>

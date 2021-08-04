@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-const HorizontalCarousel = function({photos, index, setShowModal}) {
+const HorizontalCarousel = function({photos, index, setShowModal, updateIndex}) {
 
   const [photo, setPhoto] = useState(photos[index]);
 
@@ -8,18 +8,16 @@ const HorizontalCarousel = function({photos, index, setShowModal}) {
     setPhoto(photos[index])
   }, [photos, index])
 
-  const imgStyle = {
-    "height": "400px",
-    "width": "400px",
-    "objectFit": "contain",
-    'position': 'absolute',
-    'cursor': 'zoom-in'
-  }
-
   return (
-    <React.Fragment>
-      { photos ? <img src={photo.url} style={imgStyle} onClick={() => setShowModal(true)}></img> : <img></img> }
-    </React.Fragment>
+    <div id="horizontal-carousel">
+      {index !== 0
+      ? <button className="left arrow" value={-1} onClick={(e) => {updateIndex(e)}} ></button>
+      : <div className="left arrow invisible"></div>}
+      { photos ? <img src={photo.url} className="main-image" onClick={() => setShowModal(true)}></img> : <img></img> }
+      {index !== photos.length -1
+      ? <button className="right arrow" value={1} onClick={(e) => {updateIndex(e)}} ></button>
+      : <div className="right arrow invisible"></div>}
+    </div>
   )
 }
 

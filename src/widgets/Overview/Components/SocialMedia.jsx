@@ -11,7 +11,7 @@ const SocialMedia = function(props) {
   }
 
   return (
-    <div>
+    <div id="social-media">
       <div className="fb-share-button" data-href="http://localhost:3000/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2F&amp;src=sdkpreparse" className="fb-xfbml-parse-ignore">Share</a></div>
       <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" className="twitter-share-button" data-text="Found this over on Project Catwalk:" data-related="@Project_Catwalk" data-show-count="false">Tweet</a>
       <a href="https://www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" onClick={(e) => handleClick(e)}></a>

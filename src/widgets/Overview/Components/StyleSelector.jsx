@@ -14,14 +14,14 @@ const StyleSelector = function({styles, currentStyle, setCurrent}) {
   }
 
   return (
-    <div style={selectorStyle}>
-      <h4><b>Style ></b> {currentStyle.name}</ h4>
-      <div style={gridStyle}>
-      {styles.map( (style) => {
-        return (
-          <Style key={style.style_id} style={style} setCurrent={setCurrent} currentStyle={currentStyle} />
-        )
-      })}
+    <div id="style-selector">
+      <h3><b>Style ></b> {currentStyle.name}</ h3>
+      <div className="grid-container">
+        {styles.map( (style) => {
+          return (
+            <Style key={style.style_id} style={style} setCurrent={setCurrent} currentStyle={currentStyle} />
+          )
+        })}
       </div>
     </div>
   )

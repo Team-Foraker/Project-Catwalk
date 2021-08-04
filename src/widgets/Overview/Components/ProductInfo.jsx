@@ -34,23 +34,20 @@ const ProductInfo = function({product, currentStyle}) {
     }
   }, [product])
 
-  const productStyle = {
-    gridrowStart: "1"
-  }
-
   return (
-    <div style={productStyle}>
-      <div style={ {'display': 'grid'} }>
+    <div id="product-info">
+      <div id="review-info">
       <AverageStarRating average={average} />
       {reviewCount
-      ? <span style={ {'gridColumnStart': '2'} }><a href="#ratings">Read all {reviewCount} reviews</a></span>
+      ? <span id="review-link"><a href="#ratings">Read all {reviewCount} reviews</a></span>
       : <span></span>}
       </div>
-      <h3>{product.category}</h3>
-      <h2>{product.name}</h2>
+      <span className="product">
+        <p><h3>{product.category}</h3><h2>{product.name}</h2></p>
+      </span>
       {currentStyle.sale_price
-      ? <span><s>${currentStyle.original_price}</s>  <span style={ {'color': 'red'}}>${currentStyle.sale_price}</span></span>
-      : <span>${currentStyle.original_price}</span>}
+      ? <span><span className="old-price">${currentStyle.original_price.slice(0, currentStyle.original_price.length - 3)}</span><span className="sale-price">${currentStyle.sale_price.slice(0, currentStyle.sale_price.length - 3)}</span></span>
+      : <span>${currentStyle.original_price.slice(0, currentStyle.original_price.length - 3)}</span>}
       <SocialMedia />
     </div>
   )
