@@ -57,6 +57,7 @@ const CreateReview = props => {
   }
 
   var handleSubmit = (event) => {
+    event.preventDefault();
     // console.log('submitted');
     var recommend = recommend === 'true' ? true : false;
     var validated = formValidate();
@@ -77,7 +78,7 @@ const CreateReview = props => {
 
       axios.post(`${url}reviews`, postObj)
         .then(response => {
-          // console.log(response)
+          console.log(response)
         })
         .catch(err => {
           console.log(err)
@@ -155,7 +156,7 @@ const CreateReview = props => {
               <div className="addedImages">
                 {
                   imageURLArr.map((imageURL) => {
-                    return <div>{imageURL}</div>
+                    return <div key={imageURL.toString()}>{imageURL}</div>
                   })
                 }
               </div>

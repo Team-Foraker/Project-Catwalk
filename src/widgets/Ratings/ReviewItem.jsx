@@ -43,7 +43,7 @@ const ReviewItem = (props) => {
         <div>
           {
             review.photos.map((photo) => {
-              return <img className="review-thumbnail" src={photo.url} width="100px" height="100px"/>
+              return <img key={photo.url} className="review-thumbnail" src={photo.url} width="50px" height="50px"/>
             })
           }
         </div>
