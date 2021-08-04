@@ -3,6 +3,7 @@ margin: 0 auto;
 width: 80%;
 display: flex;
 justify-content: center;
+font-family: 'Lato', sans-serif;
 }
 
 .ratings-main-component {
