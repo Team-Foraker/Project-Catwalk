@@ -27,34 +27,58 @@ const CreateReview = props => {
   }
 
   var handleScaleClick = (event) => {
-    var newObj = {...charObj,}
+    var newObj = { ...charObj, }
     newObj[event.target.getAttribute('data-key')] = parseInt(event.target.value);
     setCharObj(newObj);
   }
 
-  var handleSubmit = (event) => {
-    console.log('submitted');
-    var modal = document.getElementsByClassName('ratings-modal-content')[0];
+  var formValidate = () => {
+    var isValid = true;
 
-    var postObj = {
-      product_id: props.product,
-      rating: averageRating,
-      recommend: JSON.parse(recommend),
-      summary: summary,
-      body: body,
-      name: name,
-      email: email,
-      characteristics: charObj,
+    var emailPattern = new RegExp(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/)
+
+    if (averageRating === 0) {
+      isValid = false;
     }
-    console.log(postObj);
+    if (body.length < 50) {
+      isValid = false;
+    }
+    if (!emailPattern.test(email)) {
+      isValid = false;
+    }
 
-    axios.post(`${url}reviews`, postObj)
-      .then(response => {
-        console.log(response)
-      })
-      .catch(err => {
-        console.log(err)
-      })
+    return isValid;
+  }
+
+  var handleSubmit = (event) => {
+    // console.log('submitted');
+    var recommend = recommend === 'true' ? true : false;
+    var validated = formValidate();
+    // console.log(validated)
+    if (validated) {
+      var postObj = {
+        product_id: props.product,
+        rating: averageRating,
+        recommend: recommend,
+        summary: summary,
+        body: body,
+        name: name,
+        email: email,
+        characteristics: charObj,
+      }
+      alert(postObj.product_id)
+
+      axios.post(`${url}reviews`, postObj)
+        .then(response => {
+          // console.log(response)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    } else {
+      event.preventDefault();
+      // console.log(postObj)
+    }
   }
 
   var onValueChange = (event, group) => {
@@ -85,17 +109,17 @@ const CreateReview = props => {
             </div>
 
             <div>
-              <label htmlFor="recommend">Do you recommend this product? (mandatory)</label>
+              <label htmlFor="recommend" required>Do you recommend this product? (mandatory)</label>
 
               <label htmlFor="Yes">
-                <input type="radio" value={true} name="recommend"
-                onChange={() => onValueChange(event, setRecommend)}/>
+                <input required type="radio" value={true} name="recommend"
+                  onChange={() => onValueChange(event, setRecommend)}/>
                 Yes
               </label>
 
               <label htmlFor="No">
-                <input type="radio" value={false} name="recommend"
-                onChange={() => onValueChange(event, setRecommend)}/>
+                <input required type="radio" value={false} name="recommend"
+                  onChange={() => onValueChange(event, setRecommend)} />
                 No
               </label>
             </div>
@@ -104,7 +128,7 @@ const CreateReview = props => {
               <label htmlFor="">Characteristics (mandatory)</label>
               {
                 characteristics.map((char, index) => {
-                  return <CharacteristicScale char={char} key={index} handleScaleClick={handleScaleClick}/>
+                  return <CharacteristicScale char={char} key={index} handleScaleClick={handleScaleClick} />
                 })
               }
             </div>
@@ -116,18 +140,18 @@ const CreateReview = props => {
 
             <div>
               <label htmlFor="">Review body (mandatory)</label>
-              <textarea maxLength="1000"  placeholder="Why did you like the product or not?" value={body} onChange={() => onChange(event, setBody)} />
+              <textarea maxLength="1000" placeholder="Why did you like the product or not?" value={body} onChange={() => onChange(event, setBody)} />
             </div>
 
             <div>
               <label htmlFor="">What is your nickname (mandatory)</label>
-              <input type="text" maxLength="60" placeholder="Example: jackson11!" onChange={() => onChange(event, setName)}/>
+              <input required type="text" maxLength="60" placeholder="Example: jackson11!" onChange={() => onChange(event, setName)} />
               <small>For privacy reasons, do not use your full name or email address</small>
             </div>
 
             <div>
               <label htmlFor="">Your email (mandatory)</label>
-              <input type="text" maxLength="60" placeholder="Example: jackson11@email.com" onChange={() => onChange(event, setEmail)}/>
+              <input required type="text" maxLength="60" placeholder="Example: jackson11@email.com" onChange={() => onChange(event, setEmail)} />
               <small>For authentication reasons, you will not be emailed</small>
             </div>
 

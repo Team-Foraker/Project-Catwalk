@@ -72,7 +72,6 @@ const Ratings = (props) => {
       setReviews(sortedReviews);
     } else if (sortBy === 'newest') {
       sortedReviews = sortedReviews.sort((a, b) => {
-        console.log(a)
         return new Date(b.date) - new Date(a.date);
       });
       setReviews(sortedReviews);
