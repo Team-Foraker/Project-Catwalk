@@ -11,6 +11,20 @@ const ProductInfo = function({product, currentStyle}) {
   const [reviewCount, setReviewCount] = useState(0);
   const [average, setAverage] = useState(0);
 
+
+  // axios.get(url + 'reviews?product_id=' + product.id + '&sort=newest&count=999999')
+  useEffect( () => {
+    if (product.id) {
+      axios.get(url + 'reviews?product_id=' + product.id + '&sort=newest&count=999999')
+        .then( (results) => {
+          setReviewCount(results.data.results.length);
+        })
+        .catch( (error) => {
+          throw new Error(error);
+        })
+    }
+  }, [product]);
+
   useEffect( () => {
     if (product.id) {
       axios.get(url + 'reviews/meta?product_id=' + product.id)
@@ -22,7 +36,6 @@ const ProductInfo = function({product, currentStyle}) {
             reviews += JSON.parse(results.data.ratings[ratings[i]]);
             totalStars += JSON.parse(results.data.ratings[ratings[i]]) * ratings[i]
           }
-          setReviewCount(reviews)
           let unroundedAverage = totalStars/reviews
           setAverage(unroundedAverage.toFixed(1))
         })
