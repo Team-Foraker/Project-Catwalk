@@ -70,6 +70,7 @@ const CreateReview = props => {
         body: body,
         name: name,
         email: email,
+        photos: imageURLArr,
         characteristics: charObj,
       }
       // alert(postObj.product_id)
