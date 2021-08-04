@@ -24,7 +24,7 @@ const CharacteristicScale = props => {
         </div>
 
         <div className="scale-container">
-          <input onClick={props.handleScaleClick} data-key={props.char[1].id} type="radio" value="2" name={props.char[0]} />
+          <input required onClick={props.handleScaleClick} data-key={props.char[1].id} type="radio" value="2" name={props.char[0]} />
         </div>
 
         <div className="scale-container">

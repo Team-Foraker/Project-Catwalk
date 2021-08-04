@@ -22,40 +22,32 @@ const CharRating = ({
       <div className='label-title'>
         <span>{labelTitle}</span>
       </div>
-      {/* <Grid container spacing={1}>
-        <Grid item xs={4}> */}
-          <div className='outer-bar'>
-            <div className='inner-bar'>
-              <span
-                style={{
-                  fontSize: '18px',
-                  marginLeft: `${value}%`,
-                  lineHeight: '10px',
-                  opacity: '50%',
-                }}>
-                &#x25BC;
-              </span>
-            </div>
-            <div className='label-left'>
-              <span>{optionalLeftLabel}</span>
-            </div>
-          </div>
-        {/* </Grid>
-        <Grid item xs={4}> */}
-          <div className='outer-bar'>
-            <div className='inner-bar'></div>
-            <div className='label-center'>{optionalMiddleLabel}</div>
-          </div>
-        {/* </Grid>
-        <Grid item xs={4}> */}
-          <div className='outer-bar'>
-            <div className='inner-bar'></div>
-            <div className='label-right'>
-              <span>{optionalRightLabel}</span>
-            </div>
-          </div>
-        {/* </Grid>
-      </Grid> */}
+      <div className='outer-bar'>
+        <div className='inner-bar'>
+          <span
+            style={{
+              fontSize: '18px',
+              marginLeft: `${value}%`,
+              lineHeight: '10px',
+              opacity: '50%',
+            }}>
+            &#x25BC;
+          </span>
+        </div>
+        <div className='label-left'>
+          <span>{optionalLeftLabel}</span>
+        </div>
+      </div>
+      <div className='outer-bar'>
+        <div className='inner-bar'></div>
+        <div className='label-center'>{optionalMiddleLabel}</div>
+      </div>
+      <div className='outer-bar'>
+        <div className='inner-bar'></div>
+        <div className='label-right'>
+          <span>{optionalRightLabel}</span>
+        </div>
+      </div>
     </div>
   );
 };
