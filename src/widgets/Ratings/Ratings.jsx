@@ -6,26 +6,27 @@ import RatingsCharts from "./RatingsCharts.jsx";
 import ReviewsList from "./ReviewsList.jsx";
 import Sort from "./Sort.jsx";
 
-// import Star from "../shared/Star.jsx";
-
 const Ratings = (props) => {
   const [reviews, setReviews] = useState([]);
   const [metaData, setMetaData] = useState([]);
 
+  var apiFetch = (sorting) => {
+    axios
+      .get(`${url}reviews?product_id=${props.product.id}&sort=${sorting}&count=999999`, {
+        headers: { Authorization: API_TOKEN },
+      })
+      .then((response) => {
+        setReviews(response.data.results);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   useEffect(() => {
     if (props.product.id !== undefined) {
 
-      axios
-        .get(`${url}reviews?product_id=${props.product.id}&sort=newest&count=999999`, {
-          headers: { Authorization: API_TOKEN },
-        })
-        .then((response) => {
-          var sortedReviews = sortByRelevance(response.data.results);
-          setReviews(sortedReviews);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      apiFetch('relevant');
 
       axios.get(`${url}reviews/meta?product_id=${props.product.id}`, {
         headers: { Authorization: API_TOKEN },
@@ -39,45 +40,15 @@ const Ratings = (props) => {
     }
   }, [props.product.id]);
 
-  var sortByRelevance = (reviews) => {
-    var helpfulRev = [];
-    var nonHelpfulRev = [];
-    reviews.forEach((value) => {
-      if (value.helpfulness > 0) {
-        helpfulRev.push(value);
-      } else {
-        nonHelpfulRev.push(value);
-      }
-    });
-    helpfulRev = helpfulRev.sort((a, b) => {
-      return new Date(b.date) - new Date(a.date);
-    });
-    nonHelpfulRev = nonHelpfulRev.sort((a, b) => {
-      return new Date(b.date) - new Date(a.date);
-    });
-
-    var sortedReviews = [...helpfulRev, ...nonHelpfulRev];
-
-    return sortedReviews;
-  }
-
   var handleSort = (event) => {
-    var sortedReviews = [...reviews];
     var sortBy = event.target.value;
 
     if (sortBy === "helpfulness") {
-      sortedReviews = sortedReviews.sort((a, b) => {
-        return b.helpfulness - a.helpfulness;
-      });
-      setReviews(sortedReviews);
+      apiFetch('helpful')
     } else if (sortBy === 'newest') {
-      sortedReviews = sortedReviews.sort((a, b) => {
-        return new Date(b.date) - new Date(a.date);
-      });
-      setReviews(sortedReviews);
+      apiFetch('newest')
     } else if (sortBy === 'relevance') {
-      sortedReviews = sortByRelevance(sortedReviews);
-      setReviews(sortedReviews);
+      apiFetch('relevant')
     }
   };
 
@@ -89,7 +60,7 @@ const Ratings = (props) => {
         <div className="ratings-reviews-container">
           <div>
             <Sort reviews={reviews} handleSort={handleSort} />
-            <ReviewsList product={props.product.id} reviews={reviews} characteristics={metaData.characteristics}/>
+            <ReviewsList product={props.product.id} reviews={reviews} characteristics={metaData.characteristics} />
           </div>
         </div>
       </div>
