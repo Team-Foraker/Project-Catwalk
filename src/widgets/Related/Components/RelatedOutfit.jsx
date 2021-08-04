@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import "regenerator-runtime/runtime.js"
+import AverageStarRating from '../../shared/AverageStarRating.jsx';
 const { url, API_TOKEN } = require('../../../../config.js');
 axios.defaults.headers.common['Authorization'] = API_TOKEN;
 
@@ -30,6 +31,7 @@ const RelatedOutfits = (props) => {
   const [outfitProducts, setOutfitProducts] = useState([initialState]);
   const [outfitLeftCount, setOutfitLeftCount] = useState(0);
   const [outfitRightCount, setOutfitRightCount] = useState(outfitProducts.length);
+  const [average, setAverage] = useState(0);
 
   const getImagesAndCombine = async (product) => {
     try {
@@ -74,9 +76,19 @@ const RelatedOutfits = (props) => {
         return JSON.parse(data);
       });
     }
-  }, [localStorage.getItem('foraker').length])
-
-
+    axios.get(url + 'reviews/meta?product_id=' + props.getProducts.id)
+        .then( (results) => {
+          let ratings = Object.keys(results.data.ratings);
+          let reviews = 0;
+          var totalStars = 0;
+          for (var i = 0; i < ratings.length; i++) {
+            reviews += JSON.parse(results.data.ratings[ratings[i]]);
+            totalStars += JSON.parse(results.data.ratings[ratings[i]]) * ratings[i]
+          }
+          let unroundedAverage = (totalStars / reviews).toFixed(1)
+          setAverage(unroundedAverage)
+        })
+  }, [localStorage.getItem('foraker')])
 
 
   return (
@@ -115,7 +127,7 @@ const RelatedOutfits = (props) => {
                   <div className='related-price'>${item.default_price}</div>
                 ) : (null)}
                 {item.id !== '' ? (
-                  <div className='related-rating'>StarRating</div>
+                  <AverageStarRating average={average}/>
                 ) : (null)}
               </div>
             )
