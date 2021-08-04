@@ -32,7 +32,7 @@
 
 }
 
-.related-products {
+.related-products, .outfit-products {
   border: 1px solid black;
   width: 150px;
   margin: 10px;
@@ -40,18 +40,19 @@
   transition: 0.3s;
 }
 
-.related-products:before {
-  border: 1px solid black;
-  width: 150px;
-  margin: 10px;
-  height: 300px;
-  transition: 0.3s;
-}
 
-.related-products:hover, .last-related-product:hover {
+
+
+.related-products:hover, .last-related-product:hover, .outfit-products:hover {
   border: 1px solid black;
   transition: 0.3s;
   transform: scale(1.05);
+}
+
+.outfit-products {
+
+
+
 }
 
 
@@ -102,8 +103,8 @@
 
 
 .modal-content {
-  width: 350px;
-  height: 400px;
+  width: 400px;
+  height: 500px;
   background-color: white;
 
 }
@@ -142,6 +143,19 @@
   height: 300px;
   transition: 0.3s;
 
+}
+
+.table {
+  border: 1px solid black;
+  width: 90%;
+  height: 80%;
+}
+.row {
+  border: 1px solid black;
+}
+
+.header {
+  border: 1px solid black;
 }
 
 

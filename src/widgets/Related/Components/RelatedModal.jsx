@@ -6,10 +6,32 @@ const { url, API_TOKEN } = require('../../../../config.js');
 axios.defaults.headers.common['Authorization'] = API_TOKEN;
 
 
+
 const RelatedModal = (props) => {
   if (!props.showModal) {
     return null;
   }
+
+  console.log(props)
+
+  const [combinedData, setCombinedData] = useState([]);
+
+  useEffect(() => {
+    let product = props.currentProduct.features.map((feature, index) => {
+      let combinedFeatures = [];
+      combinedFeatures += feature.feature + ', ' + feature.value;
+      return combinedFeatures;
+    })
+    let product2 = props.chosenItem.features.map((feature, index) => {
+      let combinedFeatures = [];
+      combinedFeatures += feature.feature + ', ' + feature.value;
+      return combinedFeatures;
+    })
+    setCombinedData(combinedData.push(product.concat(product2)))
+
+
+  }, [])
+
 
 
 
@@ -19,30 +41,71 @@ const RelatedModal = (props) => {
         <div className='modal-header' style={{ padding: '10px' }}>
           <h4 className='modal-title' style={{ margin: '0' }}></h4>
         </div>
-        <div className='modal-body-current' >
+        {/* <div className='modal-body-current' >
           <div className='modal-item-name'>{props.currentProduct.name}</div>
           {props.currentProduct.features.map((feature, index) =>
             <div key={index}> {feature.feature}, {feature.value}
             </div>
           )}
-        </div>
+        </div> */}
 
-        <div className='features'>
-          Features
-        </div>
+        <table className='table'>
+          <tr className='row'>
+            <th className='header'>{props.currentProduct.category}</th>
+            <th className='header'>Category</th>
+            <th className='header'>{props.chosenItem.category}</th>
 
-        <div className='modal-body-related'>
+          </tr>
+          <tr className='row'>
+            <th className='header'>${props.currentProduct.default_price}</th>
+            <th className='header'>Price</th>
+            <th className='header'>${props.chosenItem.default_price}</th>
+
+          </tr>
+          <tr className='row'>
+            <th className='header'>{props.currentProduct.features[0].value}</th>
+            <th className='header'>Fabric</th>
+            <th className='header'>{props.chosenItem.features[0].value}</th>
+
+          </tr>
+          <tr className='row'>
+            <th className='header'>currentProduct</th>
+            <th className='header'>Stitching</th>
+            <th className='header'>chosenItem</th>
+
+
+          </tr>
+
+          <tr className='row'>
+          <th className='header'>currentProduct</th>
+            <th className='header'>Stitching</th>
+            <th className='header'>chosenItem</th>
+
+          </tr>
+
+          <tr className='row'>
+          <th className='header'>currentProduct</th>
+            <th className='header'>Stitching</th>
+            <th className='header'>chosenItem</th>
+
+          </tr>
+        </table>
+
+
+
+        {/* <div className='modal-body-related'>
           <div className='modal-item-name'>{props.chosenItem.name}</div>
           {props.chosenItem.features.map((feature, index) =>
             <div key={index} >{feature.feature}, {feature.value}</div>
           )}
         </div>
         <div className='modal-footer' style={{ padding: '10px' }}>
-          {/* <button className='button' onClick={props.onClose}>Close</button> */}
-        </div>
+
+        </div> */}
       </div>
     </div>
   )
+
 
 }
 
