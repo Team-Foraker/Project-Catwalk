@@ -39,7 +39,7 @@ const App = (props) => {
     <React.Fragment>
       {getProducts.id
       ? <div id="app">
-        <div className="nav-bar" ><h1>Project Catwalk</h1><form id="main-search" ><input className="search-bar" type="text" value={search} onChange={ (e) => setSearch(e.target.value)}></input><input className="submit" type="submit" onClick={(e) => handleSearch(e)}></input></form></div>
+        <div className="nav-bar" ><h1>Project Catwalk</h1><form id="main-search" ><input className="search-bar" type="text" value={search} onChange={ (e) => setSearch(e.target.value)}></input><input className="submit" type="submit" value='Search' onClick={(e) => handleSearch(e)}></input></form></div>
         <div id="announcements"><p><i>SITE-WIDE ANNOUNCEMENT MESSAGE!</i> — SALE/DISCOUNT <b>OFFER</b> — <u>NEW PRODUCT HIGHLIGHT</u></p></div>
         <Overview getProducts={getProducts} />
         <RelatedSection getProducts={getProducts} />
