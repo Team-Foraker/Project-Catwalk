@@ -49,11 +49,6 @@
   transform: scale(1.05);
 }
 
-.outfit-products {
-
-
-
-}
 
 
 
@@ -103,6 +98,9 @@
 
 
 .modal-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   width: 400px;
   height: 500px;
   background-color: white;
@@ -146,16 +144,25 @@
 }
 
 .table {
-  border: 1px solid black;
+
+
   width: 90%;
-  height: 80%;
+  height: 90%;
 }
-.row {
-  border: 1px solid black;
-}
-
 .header {
-  border: 1px solid black;
+  font-weight: 300;
 }
 
 
+.top-header {
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+
+  height: 20%;
+
+}
+
+.hidden-header {
+  height: 10px;
+}
