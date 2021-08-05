@@ -1,7 +1,7 @@
 #overview-widget {
   display: flex;
   flex-direction: row;
-  width: 50vw;
+  width: 100%;
   height: 60vh;
   border-color: #44403F;
   position: relative;
@@ -190,7 +190,7 @@
 }
 
 #style-selector {
-
+  flex-grow: 1;
 }
 
 #style-selector h3{
@@ -199,9 +199,9 @@
 
 #style-selector .grid-container {
   display: grid;
-  grid-template-columns: 20% 20% 20% 20% ;
-  grid-auto-rows: 38%;
-  gap: 7%;
+  grid-template-columns: 80px 80px 80px 80px;
+  grid-auto-rows: 80px;
+  gap: 5%;
   row-gap: 13%;
 }
 
@@ -233,7 +233,7 @@
   transform: rotate(315deg);
   position: absolute;
   top: 50%;
-  left: 29%;
+  left: 20%;
 }
 
 .right-mark {
