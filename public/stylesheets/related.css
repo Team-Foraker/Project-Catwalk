@@ -8,7 +8,7 @@
   height: 0;
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
-  border-right: 20px solid red;
+  border-right: 20px solid rgb(71, 70, 70);
 
 }
 
@@ -21,7 +21,7 @@
   height: 0;
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
-  border-left: 20px solid red;
+  border-left: 20px solid rgb(71, 70, 70);
 
 }
 .related-cards {
@@ -29,8 +29,9 @@
   flex-direction: row;
   width: fit-content;
   position: relative;
-
 }
+
+
 
 /* .related-cards:hover {
   transform: translateX(-25%);
