@@ -3,6 +3,7 @@ import ImageGallery from './Components/ImageGallery.jsx';
 import ProductInfo from './Components/ProductInfo.jsx';
 import StyleSelector from './Components/StyleSelector.jsx';
 import AddToCart from './Components/AddToCart.jsx';
+import SocialMedia from './Components/SocialMedia.jsx';
 import axios from 'axios';
 const {url, API_TOKEN} = require('../../../config.js')
 axios.defaults.headers.common['Authorization'] = API_TOKEN;
@@ -78,6 +79,7 @@ const Overview = function({getProducts}) {
           <ProductInfo product={product} currentStyle={currentStyle}/>
           <StyleSelector styles={styles} setCurrent={setCurrent} currentStyle={currentStyle} />
           <AddToCart currentStyle={currentStyle} isEmpty={isEmpty} setEmpty={setEmpty} />
+          <SocialMedia />
           </div>
         </div>
       : <div></div>}
