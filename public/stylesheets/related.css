@@ -33,6 +33,16 @@
   flex-direction: row;
   width: fit-content;
   position: relative;
+  animation: related-cards-effect 0.5s ease-in-out
+}
+
+@keyframes related-cards-effect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 
@@ -43,7 +53,9 @@
   height: 300px;
   transition: 0.3s;
   background-color: #F5F6F0;
+  animation: related-products-fade 0.3s ease-in-out;
 }
+
 .plus-sign {
   width: 150px;
   margin: 10px;
@@ -56,6 +68,29 @@
   height: 150px;
   width: 100%;
   cursor: pointer;
+  filter: invert(54%) sepia(43%) saturate(449%) hue-rotate(68deg) brightness(97%) contrast(81%);
+}
+
+.plus-image:hover{
+  margin-top: 50%;
+  height: 150px;
+  width: 100%;
+  cursor: pointer;
+  filter: invert(54%) sepia(43%) saturate(449%) hue-rotate(68deg) brightness(97%) contrast(81%);
+  animation: pulse 0.5s infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1)
+  }
+  50% {
+    transform: scale(1.1)
+  }
+  100% {
+    transform: scale(1)
+  }
 }
 
 
