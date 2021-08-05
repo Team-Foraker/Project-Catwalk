@@ -33,10 +33,10 @@ button {
 .star-chart-container {
   /* position: relative; */
 }
-.hollow-stars {
+/* .hollow-stars {
   display: inline-block;
   position: absolute;
-}
+} */
 
 /* .solid-stars {
   position: absolute;
@@ -62,7 +62,7 @@ button {
   background-image: url('../images/solidSt.png');
   background-repeat: repeat-x;
   background-size: contain;
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
 }
