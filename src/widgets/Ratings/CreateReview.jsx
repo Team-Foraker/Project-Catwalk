@@ -143,12 +143,12 @@ const CreateReview = props => {
 
             <div>
               <label htmlFor="">Review summary</label>
-              <input type="text" maxLength="60" placeholder="Example: Best purchase ever!" value={summary} onChange={() => onChange(event, setSummary)} />
+              <input className="ratings-form-control" type="text" maxLength="60" placeholder="Example: Best purchase ever!" value={summary} onChange={() => onChange(event, setSummary)} />
             </div>
 
             <div>
               <label htmlFor="">Review body (mandatory)</label>
-              <textarea maxLength="1000" placeholder="Why did you like the product or not?" value={body} onChange={() => onChange(event, setBody)} />
+              <textarea className="ratings-form-control" maxLength="1000" placeholder="Why did you like the product or not?" value={body} onChange={() => onChange(event, setBody)} />
             </div>
 
             <div>
@@ -160,19 +160,19 @@ const CreateReview = props => {
                   })
                 }
               </div>
-              <input onChange={() => onValueChange(event, setImageURL)} value={imageURL} type="text" />
+              <input className="ratings-form-control" onChange={() => onValueChange(event, setImageURL)} value={imageURL} type="text" />
               <button onClick={handleAddImage}>Add image</button>
             </div>
 
             <div>
               <label htmlFor="">What is your nickname (mandatory)</label>
-              <input required type="text" maxLength="60" placeholder="Example: jackson11!" onChange={() => onChange(event, setName)} />
+              <input className="ratings-form-control" required type="text" maxLength="60" placeholder="Example: jackson11!" onChange={() => onChange(event, setName)} />
               <small>For privacy reasons, do not use your full name or email address</small>
             </div>
 
             <div>
               <label htmlFor="">Your email (mandatory)</label>
-              <input required type="text" maxLength="60" placeholder="Example: jackson11@email.com" onChange={() => onChange(event, setEmail)} />
+              <input className="ratings-form-control" required type="text" maxLength="60" placeholder="Example: jackson11@email.com" onChange={() => onChange(event, setEmail)} />
               <small>For authentication reasons, you will not be emailed</small>
             </div>
 
