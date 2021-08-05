@@ -135,7 +135,7 @@ const RelatedOutfits = (props) => {
         }
         )}
 
-        {outfitRightCount > 4 ? (
+        {outfitRightCount > 4 && outfitLeftCount < outfitRightCount - 4 ? (
           <i className='right-arrow' onClick={() => {
             setOutfitLeftCount((outfitLeftCount) => {
               return outfitLeftCount + 1;
