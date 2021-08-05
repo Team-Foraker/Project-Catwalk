@@ -43,16 +43,19 @@
   height: 300px;
   transition: 0.3s;
   background-color: #F5F6F0;
-  animation: related-products-slide 0.5s ease-in-out;
+}
+.plus-sign {
+  width: 150px;
+  margin: 10px;
+  height: 300px;
+
 }
 
-@keyframes related-products-slide {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.plus-image {
+  margin-top: 50%;
+  height: 150px;
+  width: 100%;
+  cursor: pointer;
 }
 
 
@@ -62,32 +65,13 @@
   transform: scale(1.05);
 }
 
-.plus-sign {
-  width: 150px;
-  margin: 10px;
-  height: 300px;
-  animation: plus-sign-slide 0.5s;
-}
-@keyframes plus-sign-slide {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
+
 
 .related-image {
   height: 60%;
   width: 100%;
 }
 
-.plus-image {
-  margin-top: 50%;
-  height: 150px;
-  width: 100%;
-  cursor: pointer;
-}
 
 .related-category {
   padding-left: 5px;
