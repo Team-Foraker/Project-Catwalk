@@ -24,6 +24,8 @@
   border-left: 20px solid rgb(71, 70, 70);
 
 }
+
+
 .related-cards {
   display: flex;
   flex-direction: row;
@@ -80,19 +82,25 @@
 
 }
 .related-name {
+  font-size: 15px;
   font-weight: bold;
   padding-left: 5px;
+  margin-top: 3px;
 }
 .related-price {
-  padding-left: 5px
+  padding-left: 5px;
+  margin-top: 3px;
+  margin-bottom: 3px;
 }
 
 .related-rating {
-  padding-left: 5px
+  padding-left: 5px;
+  margin-top: 3px;
 }
 
 .related-star {
-  padding-left: 5px
+  padding-left: 5px;
+
 }
 
 
