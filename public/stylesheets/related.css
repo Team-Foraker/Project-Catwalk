@@ -38,7 +38,7 @@
   transition: 0.5s ease-in-out
 } */
 
-.related-products, .outfit-products {
+.related-products {
   border: 1px solid black;
   width: 150px;
   margin: 10px;
@@ -47,18 +47,32 @@
   background-color: #F5F6F0
 }
 
-.related-products:hover, .last-related-product:hover, .outfit-products:hover {
+
+.related-products:hover {
   border: 1px solid black;
   transition: 0.3s;
   transform: scale(1.05);
 }
 
+.plus-sign {
+  width: 150px;
+  margin: 10px;
+  height: 300px;
+}
 
 
 
-.related-image, .last-related-image {
+
+.related-image {
   height: 60%;
   width: 100%;
+}
+
+.plus-image {
+  margin-top: 50%;
+  height: 150px;
+  width: 100%;
+  cursor: pointer;
 }
 
 .related-category {
