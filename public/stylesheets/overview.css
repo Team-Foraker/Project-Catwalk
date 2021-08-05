@@ -190,19 +190,20 @@
 }
 
 #style-selector {
-  flex-grow: 1;
+  height: 50%;
 }
 
 #style-selector h3{
   font-weight: normal;
+  height: 5%;
 }
 
 #style-selector .grid-container {
+  height: 90%;
   display: grid;
-  grid-template-columns: 80px 80px 80px 80px;
-  grid-auto-rows: 80px;
+  grid-template-columns: 20% 20% 20% 20%;
+  grid-auto-rows: 25%;
   gap: 5%;
-  row-gap: 13%;
 }
 
 #style-selector .thumbnail {
