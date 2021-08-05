@@ -106,17 +106,17 @@ const CreateReview = props => {
 
         </div>
         <div>
-          <form onSubmit={handleSubmit}>
+          <form className="create-review-form" onSubmit={handleSubmit}>
             <div>Write Your Review</div>
 
-            <div>
+            <div className="form-group">
               <label htmlFor="overall-rating">Overall rating (madatory)</label>
               <div className="form-star-rating">
                 <StarRating onClick={handleRatingClick} />
               </div>
             </div>
 
-            <div>
+            <div className="form-group">
               <label htmlFor="recommend" required>Do you recommend this product? (mandatory)</label>
 
               <label htmlFor="Yes">
@@ -132,7 +132,7 @@ const CreateReview = props => {
               </label>
             </div>
 
-            <div>
+            <div className="form-group">
               <label htmlFor="">Characteristics (mandatory)</label>
               {
                 characteristics.map((char, index) => {
@@ -141,17 +141,17 @@ const CreateReview = props => {
               }
             </div>
 
-            <div>
+            <div className="form-group">
               <label htmlFor="">Review summary</label>
               <input className="ratings-form-control" type="text" maxLength="60" placeholder="Example: Best purchase ever!" value={summary} onChange={() => onChange(event, setSummary)} />
             </div>
 
-            <div>
+            <div className="form-group">
               <label htmlFor="">Review body (mandatory)</label>
               <textarea className="ratings-form-control" maxLength="1000" placeholder="Why did you like the product or not?" value={body} onChange={() => onChange(event, setBody)} />
             </div>
 
-            <div>
+            <div className="form-group">
               <label htmlFor="">Image urls</label>
               <div className="addedImages">
                 {
@@ -164,19 +164,19 @@ const CreateReview = props => {
               <button onClick={handleAddImage}>Add image</button>
             </div>
 
-            <div>
+            <div className="form-group">
               <label htmlFor="">What is your nickname (mandatory)</label>
               <input className="ratings-form-control" required type="text" maxLength="60" placeholder="Example: jackson11!" onChange={() => onChange(event, setName)} />
               <small>For privacy reasons, do not use your full name or email address</small>
             </div>
 
-            <div>
+            <div className="form-group">
               <label htmlFor="">Your email (mandatory)</label>
               <input className="ratings-form-control" required type="text" maxLength="60" placeholder="Example: jackson11@email.com" onChange={() => onChange(event, setEmail)} />
               <small>For authentication reasons, you will not be emailed</small>
             </div>
 
-            <div>
+            <div className="form-group">
               <input type="submit" />
             </div>
           </form>

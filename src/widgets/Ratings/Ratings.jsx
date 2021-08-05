@@ -54,7 +54,7 @@ const Ratings = (props) => {
 
   return (
     <div className="ratings-main-component" id="ratings">
-      <h3 class="ratings-headline">RATINGS & REVIEWS</h3>
+      <h3 className="ratings-headline">RATINGS & REVIEWS</h3>
       <div className="ratings-flex-container">
         <RatingsCharts reviews={reviews} metaData={metaData} />
         <div className="ratings-reviews-container">

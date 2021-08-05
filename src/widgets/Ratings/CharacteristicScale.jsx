@@ -10,35 +10,31 @@ const CharacteristicScale = props => {
   }, [props.char]);
 
   return (
-    <div>
+    <div className="form-group">
       <div>{props.char[0]}</div>
 
       <div className="ratings-radio-container">
         <div className="scale-container">
-          <div>
-            <input onClick={props.handleScaleClick} data-key={props.char[1].id} type="radio" value="1" name={props.char[0]} />
-          </div>
+          <input className="form-check-input" onClick={props.handleScaleClick} data-key={props.char[1].id} type="radio" value="1" name={props.char[0]} />
           <small>
             {labels[1]}
           </small>
         </div>
 
         <div className="scale-container">
-          <input required onClick={props.handleScaleClick} data-key={props.char[1].id} type="radio" value="2" name={props.char[0]} />
+          <input className="form-check-input" required onClick={props.handleScaleClick} data-key={props.char[1].id} type="radio" value="2" name={props.char[0]} />
         </div>
 
         <div className="scale-container">
-          <input onClick={props.handleScaleClick} data-key={props.char[1].id} type="radio" value="3" name={props.char[0]} />
+          <input className="form-check-input" onClick={props.handleScaleClick} data-key={props.char[1].id} type="radio" value="3" name={props.char[0]} />
         </div>
 
         <div className="scale-container">
-          <input onClick={props.handleScaleClick} data-key={props.char[1].id} type="radio" value="4" name={props.char[0]} />
+          <input className="form-check-input" onClick={props.handleScaleClick} data-key={props.char[1].id} type="radio" value="4" name={props.char[0]} />
         </div>
 
         <div className="scale-container">
-          <div>
-            <input onClick={props.handleScaleClick} data-key={props.char[1].id} type="radio" value="5" name={props.char[0]} />
-          </div>
+          <input className="form-check-input" onClick={props.handleScaleClick} data-key={props.char[1].id} type="radio" value="5" name={props.char[0]} />
           <small>
             {labels[5]}
           </small>
