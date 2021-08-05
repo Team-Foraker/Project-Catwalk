@@ -22,14 +22,26 @@ const App = (props) => {
 
   const handleSearch = function(event) {
     event.preventDefault();
-    // this is the search functionality that Ben was working on
+    if (search === '') {
+      axios.get(url + 'products?count=' + 0 + 1)
+      .then( (results) => {
+        setGetProducts(results.data[0])
+      })
+    } else {
+      axios.get(url + 'products?count=' + search + 1)
+        .then( (results) => {
+          console.log(results.data[JSON.parse(search)])
+          setGetProducts(results.data[search])
+        })
+    }
   }
 
   return (
     <React.Fragment>
       {getProducts.id
       ? <div id="app">
-        <div>Project Catwalk<form><input type="text" onChange={ (e) => setSearch(e.target.value)}></input><input type="submit" onClick={(e) => handleSearch(e)}></input></form></div>
+        <div className="nav-bar" ><h1>Project Catwalk</h1><form id="main-search" ><input className="search-bar" type="text" value={search} onChange={ (e) => setSearch(e.target.value)}></input><input className="submit" type="submit" onClick={(e) => handleSearch(e)}></input></form></div>
+        <div id="announcements"><p><i>SITE-WIDE ANNOUNCEMENT MESSAGE!</i> — SALE/DISCOUNT <b>OFFER</b> — <u>NEW PRODUCT HIGHLIGHT</u></p></div>
         <Overview getProducts={getProducts} />
         <RelatedSection getProducts={getProducts} />
         {/* <Questions /> */}
