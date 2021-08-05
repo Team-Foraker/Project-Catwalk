@@ -32,6 +32,11 @@
 
 }
 
+/* .related-cards:hover {
+  transform: translateX(-25%);
+  transition: 0.5s ease-in-out
+} */
+
 .related-products, .outfit-products {
   border: 1px solid black;
   width: 150px;
@@ -39,9 +44,6 @@
   height: 300px;
   transition: 0.3s;
 }
-
-
-
 
 .related-products:hover, .last-related-product:hover, .outfit-products:hover {
   border: 1px solid black;
@@ -131,17 +133,9 @@
   padding-top: 5px;
   width: 25px;
   height: 25px;
+  cursor: pointer;
 }
 
-
-.last-related-product {
-  border: 1px solid black;
-  width: 150px;
-  margin: 10px;
-  height: 300px;
-  transition: 0.3s;
-
-}
 
 .table {
 

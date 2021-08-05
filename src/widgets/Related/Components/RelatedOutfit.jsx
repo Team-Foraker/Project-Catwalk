@@ -48,7 +48,7 @@ const RelatedOutfits = (props) => {
   const addOutfit = async () => {
     const productAndStyles = await getImagesAndCombine(props.getProducts);
     setOutfitProducts((outfit) => {
-      outfit.push(productAndStyles);
+      outfit.splice(1, 0, productAndStyles);
       const sort = [
         ...new Map(outfitProducts.map((product) => [product['id'], product])).values()
       ];
@@ -94,7 +94,7 @@ const RelatedOutfits = (props) => {
   return (
     <div>
       <h3>YOUR OUTFIT</h3>
-      <div className='outfit-cards' style={{ display: 'flex', flexDirection: 'row', width: 'fitContent', position: 'relative' }}>
+      <div className='related-cards' style={{ display: 'flex', flexDirection: 'row', width: 'fitContent', position: 'relative' }}>
 
         {outfitLeftCount !== 0 ? (
           <i className='left-arrow' onClick={() => {
@@ -110,9 +110,9 @@ const RelatedOutfits = (props) => {
         ) : (null)}
 
         {outfitProducts.slice(outfitLeftCount, outfitRightCount).map((item, index) => {
-          if (item.results[0]) {
+          if (item.results[0] && index < 4) {
             return (
-              <div className='outfit-products' key={index}>
+              <div className='related-products' key={index}>
                 {item.id !== '' ? (
                   <img className='star-image' onClick={() => {
                     removeOutfit(index);
@@ -135,7 +135,7 @@ const RelatedOutfits = (props) => {
         }
         )}
 
-        {outfitLeftCount !== outfitRightCount - 4 ? (
+        {outfitRightCount > 4 ? (
           <i className='right-arrow' onClick={() => {
             setOutfitLeftCount((outfitLeftCount) => {
               return outfitLeftCount + 1;

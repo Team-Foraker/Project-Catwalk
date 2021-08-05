@@ -137,7 +137,7 @@ const RelatedProducts = (props) => {
           if (index < 4) {
             return (
 
-            <div key={index} className={index === 3 ? 'last-related-product' : 'related-products'}>
+            <div key={index} className='related-products'>
               <img className='star-image' src={'https://clipart.info/images/ccovers/1559839516star-png-1476.png'} onClick={() => {
                 setShowModal(true);
                 setCompareItems(item);}}/>
