@@ -11,7 +11,6 @@ const RelatedModal = (props) => {
   if (!props.showModal) {
     return null;
   }
-  console.log(props)
 
 
 
