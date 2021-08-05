@@ -13,6 +13,7 @@ const RelatedModal = (props) => {
   }
 
 
+
   const [combinedData, setCombinedData] = useState([]);
 
   useEffect(() => {
@@ -38,21 +39,16 @@ const RelatedModal = (props) => {
     <div className='modal' onClick={props.onClose}>
       <div className='modal-content' onClick={e => e.stopPropagation()}>
 
-        {/* <div className='modal-body-current' >
-          <div className='modal-item-name'>{props.currentProduct.name}</div>
-          {props.currentProduct.features.map((feature, index) =>
-            <div key={index}> {feature.feature}, {feature.value}
-            </div>
-          )}
-        </div> */}
 
         <table className='table'>
+          <tbody>
 
           <tr className='top-row'>
             <th className='top-header'>{props.currentProduct.name}</th>
             <th className='hidden-header'></th>
             <th className='top-header'>{props.chosenItem.name}</th>
           </tr>
+
         <tr className='hidden-row'>
           <th className='hidden-header'></th>
           <th className='hidden-header'></th>
@@ -61,56 +57,39 @@ const RelatedModal = (props) => {
 
         <tr className='row'>
           <th className='header'>{props.currentProduct.category}</th>
-          <th className='header'>Category</th>
+          <th className='mid'>Category</th>
           <th className='header'>{props.chosenItem.category}</th>
-
         </tr>
+
         <tr className='row'>
           <th className='header'>${props.currentProduct.default_price}</th>
-          <th className='header'>Price</th>
+          <th className='mid'>Price</th>
           <th className='header'>${props.chosenItem.default_price}</th>
-
         </tr>
+
         <tr className='row'>
           <th className='header'>{props.currentProduct.features[0].value}</th>
-          <th className='header'>Fabric</th>
+          <th className='mid'>Fabric</th>
           <th className='header'>{props.chosenItem.features[0].value}</th>
-
-        </tr>
-        <tr className='row'>
-          <th className='header'>currentProduct</th>
-          <th className='header'>Stitching</th>
-          <th className='header'>chosenItem</th>
-
-
         </tr>
 
         <tr className='row'>
-          <th className='header'>currentProduct</th>
-          <th className='header'>Stitching</th>
-          <th className='header'>chosenItem</th>
-
+          <th className='header'>"{props.currentProduct.slogan}"</th>
+          <th className='mid'>Slogan</th>
+          <th className='header'>"{props.chosenItem.slogan}"</th>
         </tr>
 
         <tr className='row'>
-          <th className='header'>currentProduct</th>
-          <th className='header'>Stitching</th>
-          <th className='header'>chosenItem</th>
-
+          <th className='header'>{props.numOfStyles}</th>
+          <th className='mid'>Styles</th>
+          <th className='header'>{props.chosenItem.results.length}</th>
         </tr>
+
+        </tbody>
         </table>
 
 
 
-      {/* <div className='modal-body-related'>
-          <div className='modal-item-name'>{props.chosenItem.name}</div>
-          {props.chosenItem.features.map((feature, index) =>
-            <div key={index} >{feature.feature}, {feature.value}</div>
-          )}
-        </div>
-        <div className='modal-footer' style={{ padding: '10px' }}>
-
-        </div> */}
     </div>
     </div >
   )

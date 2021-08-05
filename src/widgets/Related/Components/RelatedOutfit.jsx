@@ -48,7 +48,7 @@ const RelatedOutfits = (props) => {
   const addOutfit = async () => {
     const productAndStyles = await getImagesAndCombine(props.getProducts);
     setOutfitProducts((outfit) => {
-      outfit.push(productAndStyles);
+      outfit.splice(1, 0, productAndStyles);
       const sort = [
         ...new Map(outfitProducts.map((product) => [product['id'], product])).values()
       ];
@@ -91,10 +91,11 @@ const RelatedOutfits = (props) => {
   }, [localStorage.getItem('foraker')])
 
 
+
   return (
     <div>
       <h3>YOUR OUTFIT</h3>
-      <div className='outfit-cards' style={{ display: 'flex', flexDirection: 'row', width: 'fitContent', position: 'relative' }}>
+      <div className='related-cards'>
 
         {outfitLeftCount !== 0 ? (
           <i className='left-arrow' onClick={() => {
@@ -110,15 +111,15 @@ const RelatedOutfits = (props) => {
         ) : (null)}
 
         {outfitProducts.slice(outfitLeftCount, outfitRightCount).map((item, index) => {
-          if (item.results[0]) {
+          if (item.results[0] && index < 4) {
             return (
-              <div className='outfit-products' key={index}>
+              <div className={index === 0 ? 'plus-sign' : 'related-products'} key={index}>
                 {item.id !== '' ? (
                   <img className='star-image' onClick={() => {
                     removeOutfit(index);
                   }} src={'https://www.lifepng.com/wp-content/uploads/2020/12/Letter-X-Roundlet-png-hd.png'} />
                 ) : (null)}
-                <img className='related-image' onClick={() => {
+                <img className={index === 0 ? 'plus-image' : 'related-image'} onClick={() => {
                   addOutfit();
                 }} src={item.results[0].photos[0].thumbnail_url} />
                 <div className='related-category'>{item.category}</div>
@@ -135,7 +136,7 @@ const RelatedOutfits = (props) => {
         }
         )}
 
-        {outfitLeftCount !== outfitRightCount - 4 ? (
+        {outfitRightCount > 4 && outfitLeftCount < outfitRightCount - 4 ? (
           <i className='right-arrow' onClick={() => {
             setOutfitLeftCount((outfitLeftCount) => {
               return outfitLeftCount + 1;

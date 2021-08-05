@@ -14,6 +14,7 @@ const RelatedProducts = (props) => {
   const [currentProduct, setCurrentProduct] = useState([]);
   const [reviewCount, setReviewCount] = useState([]);
   const [average, setAverage] = useState([]);
+  const [styles, setStyles] = useState(0);
 
 
   // leftCount
@@ -65,6 +66,10 @@ const RelatedProducts = (props) => {
       axios.get(url + `products/${props.getProducts.id}`)
         .then((res) => {
           setCurrentProduct(res.data)
+        })
+      axios.get(url + `products/${props.getProducts.id}/styles`)
+        .then((res) => {
+          setStyles(res.data.results.length)
         })
       axios.get(url + `products/${props.getProducts.id}/related`)
         .then((res) => {
@@ -120,11 +125,9 @@ const RelatedProducts = (props) => {
 
 
 
-
-
   return (
     <div>
-      <h3>RELATED PRODUCTS</h3>
+      <h3 className='related-header'>RELATED PRODUCTS</h3>
       <div className='related-cards'>
         {leftCount !== 0 ? (
           <i className='left-arrow' onClick={() => {
@@ -137,8 +140,8 @@ const RelatedProducts = (props) => {
           if (index < 4) {
             return (
 
-            <div key={index} className={index === 3 ? 'last-related-product' : 'related-products'}>
-              <img className='star-image' src={'https://clipart.info/images/ccovers/1559839516star-png-1476.png'} onClick={() => {
+            <div key={index} className='related-products'>
+              <img className='star-image' src={'https://clipart.info/images/ccovers/1559839515silver-star-png-11.png'} onClick={() => {
                 setShowModal(true);
                 setCompareItems(item);}}/>
               <img className='related-image' src={item.results[0].photos[0].thumbnail_url} />
@@ -165,7 +168,7 @@ const RelatedProducts = (props) => {
           </i>
         ) : (null)}
 
-        <RelatedModal getProducts={props.getProducts} showModal={showModal} onClose={() => setShowModal(false)} chosenItem={compareItems} currentProduct={currentProduct} />
+        <RelatedModal getProducts={props.getProducts} showModal={showModal} onClose={() => setShowModal(false)} chosenItem={compareItems} currentProduct={currentProduct} numOfStyles={styles}/>
 
       </div>
     </div>
