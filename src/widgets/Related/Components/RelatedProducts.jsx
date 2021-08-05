@@ -16,7 +16,6 @@ const RelatedProducts = (props) => {
   const [average, setAverage] = useState([]);
   const [styles, setStyles] = useState(0);
 
-  
 
 
   // leftCount

@@ -90,8 +90,6 @@ const RelatedOutfits = (props) => {
         })
   }, [localStorage.getItem('foraker')])
 
-
-
   return (
     <div>
       <h3>YOUR OUTFIT</h3>

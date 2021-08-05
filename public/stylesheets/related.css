@@ -36,12 +36,6 @@
 }
 
 
-
-/* .related-cards:hover {
-  transform: translateX(-25%);
-  transition: 0.5s ease-in-out
-} */
-
 .related-products {
   border: 1px solid black;
   width: 150px;
@@ -162,9 +156,9 @@
   align-items: center;
   justify-content: center;
   z-index: 100;
-  animation: modal-fade-out 0.2s ease-in-out;
+  animation: modal-fade-in 0.2s ease-in-out;
 }
-@keyframes modal-fade-out {
+@keyframes modal-fade-in {
   from {
     opacity: 0;
   }
