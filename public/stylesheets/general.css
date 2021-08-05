@@ -15,10 +15,12 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-content: center;
 }
 
 .nav-bar h1 {
   text-indent: .5em;
+  white-space: nowrap;
 }
 
 #main-search {
@@ -53,6 +55,10 @@ body {
   color: #44403F;
   text-align: left;
   font-size: 1em;
+  /* background-image: url(https://upload.wikimedia.org/wikipedia/commons/5/55/Magnifying_glass_icon.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; */
 }
 
 #announcements {
