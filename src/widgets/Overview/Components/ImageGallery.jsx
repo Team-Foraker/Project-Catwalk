@@ -37,6 +37,7 @@ const ImageGallery = function({styles, style}) {
         { style ? <HorizontalCarousel photos={style.photos} index={index} updateIndex={updateIndex} changeView={changeView} expanded={expanded} /> : <HorizontalCarousel />}
       </div>
       : <div id="image-gallery" className="expanded">
+          <VerticalCarousel photos={style.photos} index={index} updateIndex={updateIndex} base={base} />
           <HorizontalCarousel photos={style.photos} index={index} updateIndex={updateIndex} changeView={changeView} expanded={expanded} />
         </div>}
     </React.Fragment>
