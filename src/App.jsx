@@ -30,7 +30,6 @@ const App = (props) => {
     } else {
       axios.get(url + 'products?count=' + search + 1)
         .then( (results) => {
-          console.log(results.data[JSON.parse(search)])
           setGetProducts(results.data[search])
         })
     }
