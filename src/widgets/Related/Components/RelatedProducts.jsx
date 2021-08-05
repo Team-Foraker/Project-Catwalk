@@ -117,6 +117,11 @@ const RelatedProducts = (props) => {
     }
   }, [props.getProducts])
 
+
+
+
+
+
   return (
     <div>
       <h3>RELATED PRODUCTS</h3>

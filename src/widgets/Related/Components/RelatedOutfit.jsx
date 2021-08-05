@@ -112,7 +112,7 @@ const RelatedOutfits = (props) => {
         {outfitProducts.slice(outfitLeftCount, outfitRightCount).map((item, index) => {
           if (item.results[0]) {
             return (
-              <div className='related-products' key={index}>
+              <div className='outfit-products' key={index}>
                 {item.id !== '' ? (
                   <img className='star-image' onClick={() => {
                     removeOutfit(index);
