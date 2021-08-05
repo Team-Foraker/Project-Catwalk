@@ -16,6 +16,7 @@ const Overview = function({getProducts}) {
   const [currentStyle, setCurrent] = useState(styles[0]);
   const [isEmpty, setEmpty] = useState(false);
 
+
   // useEffect(() => {
   //   axios.get(url + 'products')
   //     .then( (products) => {
@@ -72,7 +73,7 @@ const Overview = function({getProducts}) {
     <React.Fragment>
       {currentStyle.style_id
       ? <div id="overview-widget" >
-          <ImageGallery style={currentStyle}/>
+          <ImageGallery style={currentStyle} />
           <div id='overview-second-column'>
           <ProductInfo product={product} currentStyle={currentStyle}/>
           <StyleSelector styles={styles} setCurrent={setCurrent} currentStyle={currentStyle} />

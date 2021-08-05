@@ -4,6 +4,7 @@
   width: 50vw;
   height: 60vh;
   border-color: #44403F;
+  position: relative;
 }
 
 #overview-second-column {
@@ -16,9 +17,14 @@
 #image-gallery {
   height: 100%;
   width: 66%;
-  border-width: thin;
   position: relative;
   justify-content: center;
+}
+
+#image-gallery.expanded {
+  width: 100%;
+  z-index: 2;
+  position: absolute;
 }
 
 #vertical-carousel {
@@ -44,8 +50,8 @@
   height: 0;
   border-top: 15px solid transparent;
   border-bottom: 15px solid transparent;
-  border-right: 15px solid #C6CDC1;
-  z-index: 1;
+  border-right: 15px solid #44403F;
+  z-index: 5;
 }
 
 .up {
@@ -61,7 +67,7 @@
 }
 
 #vertical-carousel .arrow {
-  margin-left: 30%;
+  margin-left: 40%;
 }
 
 .highlighted {
@@ -92,21 +98,32 @@
   width: 100%;
 }
 
-#horizontal-carousel .main-image {
+#horizontal-carousel #main-image {
   height: 100%;
   width: 100%;
   position: absolute;
   object-fit: cover;
 }
 
-#horizontal-carousel .default {
+#main-image.default {
   cursor: zoom-in;
+}
+
+#main-image.expanded {
+  cursor: url(https://img.icons8.com/material-outlined/24/000000/plus--v1.png), zoom-in;
+  position: relative;
+  object-fit: contain !important;
+  background-color: #F5F6F0;
 }
 
 #horizontal-carousel .left {
   top: 50%;
   left: 10%;
   position: absolute;
+}
+
+#horizontal-carousel.expanded .left {
+  left: 4%;
 }
 
 #horizontal-carousel .right {
@@ -291,4 +308,40 @@
 .right-edge {
   position: absolute;
   left: 90%;
+}
+
+#zoomed {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  cursor: url(https://img.icons8.com/ios-glyphs/30/000000/minus.png), zoom-out;
+  z-index: 6;
+  --x: 0px;
+  --y: 0px;
+  background-position: var(--x) var(--y);
+  background-size: 150%;
+  background-color: #F5F6F0;
+}
+
+#image-gallery #close-button {
+  z-index: 4;
+  height: 4%;
+  width: 3%;
+  position: absolute;
+  top: 1%;
+  left: 95%;
+}
+
+#close-button::after {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  content: "\2716";
+  position: absolute;
+  color: #44403F;
+  font-size: 1.5em;
 }
