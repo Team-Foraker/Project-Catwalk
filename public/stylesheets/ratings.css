@@ -70,6 +70,7 @@ font-family: 'Lato', sans-serif;
 
 .averageRating-flex-container {
   display: flex;
+
 }
 
 /* Average Rating Component */
@@ -77,6 +78,15 @@ font-family: 'Lato', sans-serif;
   margin-top: 21.440px;
 }
 
+.averageRating-flex-container h1.rating-avg {
+  font-size: 4em;
+}
+
+.star-chart-container-avg {
+  position: relative;
+  top: 42px;
+  left: 10px;
+}
 /* Bar Charts */
 .bar-charts-flex-container {
   display: flex;
@@ -119,14 +129,36 @@ font-family: 'Lato', sans-serif;
   margin-bottom: 15px;
 }
 
+.segment-vert-container-left {
+ width: 33%;
+ display: flex;
+ flex-direction: column;
+ align-items: flex-start;
+}
+
+.segment-vert-container-center {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.segment-vert-container-right {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 .segment-container-top {
   display: flex;
   justify-content: space-between;
   margin-bottom: 5px;
+  margin-top: -10px;
 }
 
 .segment {
-  width: 33%;
+  width: 100%;
   background-color: #C6CDC1;
   height: 6px;
 }
@@ -134,7 +166,7 @@ font-family: 'Lato', sans-serif;
 .pointer {
   position: relative;
   z-index: 1;
-  top: 13px;
+  top: 2px;
 }
 
 .segment-container > small {
