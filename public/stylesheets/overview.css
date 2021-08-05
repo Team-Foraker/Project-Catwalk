@@ -172,8 +172,6 @@
   height: 66%;
   padding: 0;
   margin: 0;
-  flex-grow: 2;
-  font-size: 2.5em;
 }
 
 .old-price {
@@ -345,4 +343,13 @@
   position: absolute;
   color: #44403F;
   font-size: 1.5em;
+}
+
+#social-media {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#review-link {
+  white-space: nowrap;
 }

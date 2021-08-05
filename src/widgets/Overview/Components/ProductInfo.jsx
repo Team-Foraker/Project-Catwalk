@@ -61,7 +61,7 @@ const ProductInfo = function({product, currentStyle}) {
       {currentStyle.sale_price
       ? <span><span className="old-price">${currentStyle.original_price.slice(0, currentStyle.original_price.length - 3)}</span><span className="sale-price">${currentStyle.sale_price.slice(0, currentStyle.sale_price.length - 3)}</span></span>
       : <span>${currentStyle.original_price.slice(0, currentStyle.original_price.length - 3)}</span>}
-      <SocialMedia />
+      {/* <SocialMedia /> */}
     </div>
   )
 }
