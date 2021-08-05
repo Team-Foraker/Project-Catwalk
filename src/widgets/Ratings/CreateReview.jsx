@@ -161,7 +161,7 @@ const CreateReview = props => {
                 }
               </div>
               <input className="ratings-form-control" onChange={() => onValueChange(event, setImageURL)} value={imageURL} type="text" />
-              <button onClick={handleAddImage}>Add image</button>
+              <button className="form-btn" onClick={handleAddImage}>Add image</button>
             </div>
 
             <div className="form-group">
@@ -177,7 +177,7 @@ const CreateReview = props => {
             </div>
 
             <div className="form-group">
-              <input type="submit" />
+              <input className="reviews-btn form-btn" type="submit" />
             </div>
           </form>
 
