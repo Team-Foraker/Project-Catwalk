@@ -13,14 +13,16 @@ const CharacteristicChart = (props) => {
         <div className="segment-vert-container-center">
           <div className="segment"></div>
           <div>
-          <small>{props.labels['M']}</small>
+            <small>{props.labels['M']}</small>
 
           </div>
         </div>
         <div className="segment-vert-container-right">
           <div className="segment"></div>
+          <div>
 
-          <small>{props.labels['R']}</small>
+            <small>{props.labels['R']}</small>
+          </div>
         </div>
       </div>
       <div className="segment-container">
