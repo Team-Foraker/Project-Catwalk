@@ -121,6 +121,10 @@
   text-decoration: underline;
 }
 
+.number-of-stars:hover {
+  cursor: pointer;
+}
+
 .gray-bar {
   height: 8px;
   width: 80%;
