@@ -299,7 +299,11 @@
   border-style: solid;
   border-width: thin;
   border-color: #44403F;
-  position: relative
+  position: relative;
+}
+
+#cart .flex-container {
+  height: 30%;
 }
 
 .right-edge {
