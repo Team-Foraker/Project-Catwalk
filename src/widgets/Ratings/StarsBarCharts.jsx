@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
 const StarsBarCharts = props => {
   const ratings = props.ratings;
@@ -29,35 +29,35 @@ const StarsBarCharts = props => {
   return (
     <div>
       <div className="ratings-flex-container bar-chart-container">
-        <div className="number-of-stars">5 stars</div>
+        <div data-key={5} onClick={() => props.handleReviewFilter(event)} className="number-of-stars">5 stars</div>
         <div className="gray-bar">
           <div className="green-bar" style={{ width: `${fives}%` }}></div>
         </div>
       </div>
 
       <div className="ratings-flex-container bar-chart-container">
-        <div className="number-of-stars">4 stars</div>
+        <div data-key={4} onClick={() => props.handleReviewFilter(event)} className="number-of-stars">4 stars</div>
         <div className="gray-bar">
           <div className="green-bar" style={{ width: `${fours}%` }}></div>
         </div>
       </div>
 
       <div className="ratings-flex-container bar-chart-container">
-        <div className="number-of-stars">3 stars</div>
+        <div data-key={3} onClick={() => props.handleReviewFilter(event)} className="number-of-stars">3 stars</div>
         <div className="gray-bar">
           <div className="green-bar" style={{ width: `${threes}%` }}></div>
         </div>
       </div>
 
       <div className="ratings-flex-container bar-chart-container">
-        <div className="number-of-stars">2 stars</div>
+        <div data-key={2} onClick={() => props.handleReviewFilter(event)} className="number-of-stars">2 stars</div>
         <div className="gray-bar">
           <div className="green-bar" style={{ width: `${twos}%` }}></div>
         </div>
       </div>
 
       <div className="ratings-flex-container bar-chart-container">
-        <div className="number-of-stars">1 stars</div>
+        <div data-key={1} onClick={() => props.handleReviewFilter(event)} className="number-of-stars">1 stars</div>
         <div className="gray-bar">
           <div className="green-bar" style={{ width: `${ones}%` }}></div>
         </div>

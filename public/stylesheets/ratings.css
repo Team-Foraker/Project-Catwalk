@@ -118,6 +118,7 @@
 
 .number-of-stars {
   width: 20%;
+  text-decoration: underline;
 }
 
 .gray-bar {

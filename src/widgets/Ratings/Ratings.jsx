@@ -9,6 +9,7 @@ import Sort from "./Sort.jsx";
 const Ratings = (props) => {
   const [reviews, setReviews] = useState([]);
   const [metaData, setMetaData] = useState([]);
+  const [filteredRev, setFilteredRev] = useState([])
 
   var apiFetch = (sorting) => {
     axios
@@ -38,7 +39,10 @@ const Ratings = (props) => {
           console.log(error);
         });
     }
-  }, [props.product.id]);
+    if (reviews) {
+      setFilteredRev(reviews)
+    }
+  }, [props.product.id, reviews]);
 
   var handleSort = (event) => {
     var sortBy = event.target.value;
@@ -52,15 +56,23 @@ const Ratings = (props) => {
     }
   };
 
+  var handleReviewFilter = (event) => {
+    var rating = parseInt(event.target.getAttribute('data-key'));
+    var filteredList = reviews.filter((revItem) => {
+      return revItem.rating === rating;
+    });
+    setFilteredRev(filteredList);
+  }
+
   return (
     <div className="ratings-main-component" id="ratings">
       <h3 className="ratings-headline">RATINGS & REVIEWS</h3>
       <div className="ratings-flex-container">
-        <RatingsCharts reviews={reviews} metaData={metaData} />
+        <RatingsCharts handleReviewFilter={handleReviewFilter} reviews={reviews} metaData={metaData} />
         <div className="ratings-reviews-container">
           <div>
             <Sort reviews={reviews} handleSort={handleSort} />
-            <ReviewsList product={props.product.id} reviews={reviews} characteristics={metaData.characteristics} />
+            <ReviewsList product={props.product.id} reviews={filteredRev} characteristics={metaData.characteristics} />
           </div>
         </div>
       </div>
