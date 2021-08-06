@@ -59,7 +59,7 @@ const ReviewItem = (props) => {
         </div>
       </div>
       {review.recommend && <div>&#10003; I recommend this product</div>}
-      <div>{review.response}</div>
+      <div className="review-response">{review.response}</div>
       {
         !helpClicked &&
         <div>

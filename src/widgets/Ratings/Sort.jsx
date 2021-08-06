@@ -5,16 +5,16 @@ const Sort = props => {
 
   return (
     <div>
-      <span>
+      <span className="sort-summary">
         {reviews.length} reviews, sorted by
-        <span>
-          &nbsp;
-          <select onChange={() => props.handleSort(event)}>
-            <option value="relevance">relevance</option>
-            <option value="helpfulness">helpfulness</option>
-            <option value="newest">newest</option>
-          </select>
-        </span>
+      </span>
+      <span>
+        &nbsp;
+        <select className="sort-select" onChange={() => props.handleSort(event)}>
+          <option value="relevance">relevance</option>
+          <option value="helpfulness">helpfulness</option>
+          <option value="newest">newest</option>
+        </select>
       </span>
     </div>
   )
