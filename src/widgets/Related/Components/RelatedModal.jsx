@@ -12,7 +12,6 @@ const RelatedModal = (props) => {
     return null;
   }
 
-  console.log(props)
 
 
 
