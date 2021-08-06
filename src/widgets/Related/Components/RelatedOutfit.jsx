@@ -90,8 +90,6 @@ const RelatedOutfits = (props) => {
         })
   }, [localStorage.getItem('foraker')])
 
-
-
   return (
     <div>
       <h3>YOUR OUTFIT</h3>
@@ -113,13 +111,13 @@ const RelatedOutfits = (props) => {
         {outfitProducts.slice(outfitLeftCount, outfitRightCount).map((item, index) => {
           if (item.results[0] && index < 4) {
             return (
-              <div className={index === 0 ? 'plus-sign' : 'related-products'} key={index}>
+              <div className={item.id === '' ? 'plus-sign' : 'related-products'} key={index}>
                 {item.id !== '' ? (
                   <img className='star-image' onClick={() => {
                     removeOutfit(index);
                   }} src={'https://www.lifepng.com/wp-content/uploads/2020/12/Letter-X-Roundlet-png-hd.png'} />
                 ) : (null)}
-                <img className={index === 0 ? 'plus-image' : 'related-image'} onClick={() => {
+                <img className={item.id === '' ? 'plus-image' : 'related-image'} onClick={() => {
                   addOutfit();
                 }} src={item.results[0].photos[0].thumbnail_url} />
                 <div className='related-category'>{item.category}</div>

@@ -17,6 +17,7 @@ const RelatedProducts = (props) => {
   const [styles, setStyles] = useState(0);
 
 
+
   // leftCount
   const increment = () => {
     setLeftCount((leftCount) => leftCount + 1)

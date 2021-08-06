@@ -39,7 +39,6 @@ const RelatedModal = (props) => {
     <div className='modal' onClick={props.onClose}>
       <div className='modal-content' onClick={e => e.stopPropagation()}>
 
-
         <table className='table'>
           <tbody>
 
