@@ -41,7 +41,7 @@ const AddToCart = function({currentStyle, isEmpty, setEmpty}) {
       <div className="flex-container">
       {sizes[0] !== "null"
       ? <SizeSelection sizes={sizes} currentStyle={currentStyle} selectSize={selectSize} />
-      : <select disabled ><option>OUT OF STOCK</option></select>}
+      : <select disabled id="sizeSelector"><option>OUT OF STOCK</option></select>}
       {selection !== ""
       ? <QuantitySelection selection={selection} currentStyle={currentStyle} selectQuantity={selectQuantity} />
       : <select disabled id="quantity"><option>—</option></select>}
