@@ -4,6 +4,7 @@ import ProductInfo from './Components/ProductInfo.jsx';
 import StyleSelector from './Components/StyleSelector.jsx';
 import AddToCart from './Components/AddToCart.jsx';
 import SocialMedia from './Components/SocialMedia.jsx';
+import ProductSpiel from './Components/ProductSpiel.jsx';
 import axios from 'axios';
 const {url, API_TOKEN} = require('../../../config.js')
 axios.defaults.headers.common['Authorization'] = API_TOKEN;
@@ -59,21 +60,11 @@ const Overview = function({getProducts}) {
     }
   }, [styles])
 
-  // const overviewStyle = {
-  //   display: 'grid',
-  //   gridTemplateColumns: '45vw 35vw',
-  //   gridTemplateRows: '1fr 1fr 1fr'
-  // }
-
-  // const overviewStyle = {
-  //   display: 'flex',
-  //   flexDirection: 'row'
-  // }
-
   return (
     <React.Fragment>
       {currentStyle.style_id
-      ? <div id="overview-widget" >
+      ? <React.Fragment>
+        <div id="overview-widget" >
           <ImageGallery style={currentStyle} />
           <div id='overview-second-column'>
           <ProductInfo product={product} currentStyle={currentStyle}/>
@@ -82,6 +73,8 @@ const Overview = function({getProducts}) {
           <SocialMedia />
           </div>
         </div>
+        <ProductSpiel product={product} />
+      </React.Fragment>
       : <div></div>}
     </React.Fragment>
   )
