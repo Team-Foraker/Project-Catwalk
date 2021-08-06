@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
 const PercentRecommended = props => {
   const [recommends, setRecommends] = useState('');
@@ -14,12 +14,14 @@ const PercentRecommended = props => {
       }
     }
     var totalReviews = recommends + notRecommends;
-    setPercentRecommends(Math.floor((recommends/totalReviews) * 100))
+    setPercentRecommends(Math.floor((recommends / totalReviews) * 100))
   })
 
   return (
     <div>
-      {String(percentRecommends)}% of reviews recommend this product
+      <p>
+        {String(percentRecommends)}% of reviews recommend this product
+      </p>
     </div>
   )
 }

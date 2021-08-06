@@ -28,7 +28,7 @@ const ReviewBody = ({ body }) => {
       <div>
         {
         !full &&
-        <button onClick={showMore}>Show more</button>
+        <button className="show-more-btn" onClick={showMore}>Show more</button>
         }
       </div>
     </div>
