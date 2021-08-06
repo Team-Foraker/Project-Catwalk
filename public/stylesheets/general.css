@@ -1,0 +1,78 @@
+body {
+  background-color: #F5F6F0;
+  color: #44403F;
+  margin: 0;
+}
+
+#root {
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  font-family: "Lato", sans-serif;
+}
+
+#app {
+  width: 66%
+}
+
+.nav-bar {
+  height: 3.5%;
+  width: 100%;
+  background-color: #C6CDC1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.nav-bar h1 {
+  text-indent: .5em;
+  white-space: nowrap;
+}
+
+#main-search {
+  height: 100%;
+  top: 25%;
+  position: relative;
+}
+
+#main-search input {
+  height: 50%;
+  border-top: 0;
+  border-right: 0;
+  /* border-bottom: 0; */
+  border-left: 0;
+  outline: none;
+  background-color: #C6CDC1;
+}
+
+#main-search .search-bar {
+  font-family: 'Lato', sans-serif;
+  font-weight: bolder;
+  color: #44403F;
+  text-align: left;
+  font-size: 1em;
+  text-indent: .5em;
+}
+
+#main-search .submit {
+  border-bottom: 0;
+  font-family: 'Lato', sans-serif;
+  font-weight: bolder;
+  color: #44403F;
+  text-align: left;
+  font-size: 1em;
+  /* background-image: url(https://upload.wikimedia.org/wikipedia/commons/5/55/Magnifying_glass_icon.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; */
+}
+
+#announcements {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  font-size: .9em;
+}

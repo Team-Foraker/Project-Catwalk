@@ -1,0 +1,377 @@
+#overview-widget {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 60vh;
+  border-color: #44403F;
+  position: relative;
+}
+
+#overview-second-column {
+  display: flex;
+  flex-direction: column;
+  margin-left: 3%;
+  width: 33%;
+}
+
+#image-gallery {
+  height: 100%;
+  width: 66%;
+  position: relative;
+  justify-content: center;
+}
+
+#image-gallery.expanded {
+  width: 100%;
+  z-index: 2;
+  position: absolute;
+}
+
+#vertical-carousel {
+  display: flex;
+  flex-direction: column;
+  max-height: 90%;
+  height: 90%;
+  width: 10%;
+  top: 5%;
+  justify-content: space-evenly center;
+  position: absolute;
+  z-index: 1;
+}
+
+#vertical-carousel .item {
+  height: 10%;
+  padding: 10%
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-right: 15px solid #44403F;
+  z-index: 5;
+}
+
+.up {
+  transform: rotate(90deg);
+}
+
+.down {
+  transform: rotate(270deg);
+}
+
+.right {
+  transform: rotate(180deg);
+}
+
+#vertical-carousel .arrow {
+  margin-left: 40%;
+}
+
+.highlighted {
+  background-color: #C6CDC1;
+  width: 100%;
+  height: 7%
+}
+
+.invisible {
+  opacity: 0
+}
+
+.thumbnail {
+  border-style: solid;
+  border-width: thin;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+#horizontal-carousel {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  height: 100%;
+  width: 100%;
+}
+
+#horizontal-carousel #main-image {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  object-fit: cover;
+}
+
+#main-image.default {
+  cursor: zoom-in;
+}
+
+#main-image.expanded {
+  cursor: url(https://img.icons8.com/material-outlined/24/000000/plus--v1.png), zoom-in;
+  position: relative;
+  object-fit: contain !important;
+  background-color: #F5F6F0;
+}
+
+#horizontal-carousel .left {
+  top: 50%;
+  left: 10%;
+  position: absolute;
+}
+
+#horizontal-carousel.expanded .left {
+  /* left: 4%; */
+}
+
+#horizontal-carousel .right {
+  top: 50%;
+  left: 95%;
+  position: absolute;
+}
+
+#product-info {
+  margin-top: 8%;
+  width: 100%;
+  height: 25%
+}
+
+#review-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 10%;
+  padding-bottom: 0;
+}
+
+#review-info .star-chart-container {
+}
+
+#social-media {
+  display: flex;
+  flex-direction: row;
+}
+
+.product {
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+#product-info h3 {
+  height: 33%;
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
+}
+
+#product-info h2 {
+  height: 66%;
+  padding: 0;
+  margin: 0;
+}
+
+.old-price {
+  text-decoration: line-through;
+  margin-right: .5em;
+}
+
+.sale-price {
+  color: #BD2514;
+}
+
+#social-media {
+  padding-top: 2em;
+}
+
+#style-selector {
+  height: 50%;
+}
+
+#style-selector h3{
+  font-weight: normal;
+}
+
+#style-selector .grid-container {
+  height: 90%;
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20%;
+  grid-auto-rows: 25%;
+  gap: 5%;
+}
+
+#style-selector .thumbnail {
+  border-radius: 50%;
+  position: relative;
+}
+
+.style-holder {
+  position: relative;
+}
+
+.checkmark-holder {
+  position: absolute;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: thin;
+  background-color: #F5F6F0;
+  height: 30%;
+  width: 30%;
+  top: -5%;
+  left: 75%;
+}
+
+.left-mark {
+  height: 30%;
+  width: 10%;
+  background-color: #44403F;
+  transform: rotate(315deg);
+  position: absolute;
+  top: 50%;
+  left: 28%;
+}
+
+.right-mark {
+  height: 70%;
+  width: 10%;
+  background-color: #44403F;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 20%;
+  left: 56%;
+}
+
+#cart {
+  display: flex;
+  flex-direction: column;
+  height: 25%;
+}
+
+#cart .error {
+  color: red;
+  width: 60%;
+  text-align: left;
+  text-indent: .5em;
+}
+
+#cart .flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  height: 25%;
+  margin-bottom: 5%;
+}
+
+#cart select {
+  border-radius: 0;
+  font-size: 1em;
+  color: #44403F;
+  text-indent: .5em;
+  background-color: #F5F6F0;
+  border-color: #44403F;
+  font-weight: bolder;
+  font-family: 'Lato', sans-serif;
+  outline: #63A15F;
+}
+
+#cart #sizeSelector {
+  width: 60%;
+  margin-right: 5%;
+}
+
+#cart #quantity {
+  width: 30%;
+}
+
+#cart button {
+  font-family: 'Lato', sans-serif;
+  font-weight: bolder;
+  color: #44403F;
+  text-align: left;
+  text-indent: .5em;
+  font-size: 1em;
+}
+
+#cart #cart-button {
+  width: 75%;
+  border-style: solid;
+  border-width: thin;
+  border-color: #44403F;
+  position: relative;
+}
+
+#cart .flex-container {
+  height: 30%;
+}
+
+.right-edge {
+  position: absolute;
+  left: 90%;
+}
+
+#zoomed {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  cursor: url(https://img.icons8.com/ios-glyphs/30/000000/minus.png), zoom-out;
+  z-index: 6;
+  --x: 0px;
+  --y: 0px;
+  background-position: var(--x) var(--y);
+  background-size: 150%;
+  background-color: #F5F6F0;
+}
+
+#image-gallery #close-button {
+  z-index: 4;
+  height: 4%;
+  width: 3%;
+  position: absolute;
+  top: 1%;
+  left: 95%;
+}
+
+#close-button::after {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  content: "\2716";
+  position: absolute;
+  color: #44403F;
+  font-size: 1.5em;
+}
+
+#social-media {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#review-link {
+  white-space: nowrap;
+}
+
+#product-spiel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;;
+  width: 56%;
+  margin: 0;
+  left: 9%;
+  position: relative;
+}
+
+#overview-widget a:link {
+  color: #63A15F;
+}
+
+#overview-widget a:hover {
+}
+
+#overview-widget a:visited {
+  color: #C6CDC1;
+}
