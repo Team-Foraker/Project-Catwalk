@@ -12,7 +12,7 @@ const RatingsCharts = props => {
     <div className="ratings-charts-container">
       <AverageStars ratings={props.metaData.ratings}/>
       <PercentRecommended recommended={props.metaData.recommended}/>
-      <StarsBarCharts ratings={props.metaData.ratings}/>
+      <StarsBarCharts handleReviewFilter={props.handleReviewFilter} ratings={props.metaData.ratings}/>
       <Breakdown characteristics={props.metaData.characteristics}/>
     </div>
   )
