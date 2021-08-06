@@ -12,6 +12,8 @@ const RelatedModal = (props) => {
     return null;
   }
 
+  console.log(props)
+
 
 
   const [combinedData, setCombinedData] = useState([]);
@@ -67,9 +69,9 @@ const RelatedModal = (props) => {
         </tr>
 
         <tr className='row'>
-          <th className='header'>{props.currentProduct.features[0].value}</th>
+          <th className='header'>{props.currentProduct.features[0].value || 'N/A'}</th>
           <th className='mid'>Fabric</th>
-          <th className='header'>{props.chosenItem.features[0].value}</th>
+          <th className='header'>{props.chosenItem.features[0].value || 'N/A'}</th>
         </tr>
 
         <tr className='row'>
