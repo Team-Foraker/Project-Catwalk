@@ -146,7 +146,6 @@
 }
 
 #review-info .star-chart-container {
-  margin-right: 5em;
 }
 
 #social-media {
@@ -360,4 +359,15 @@
   margin: 0;
   left: 9%;
   position: relative;
+}
+
+#overview-widget a:link {
+  color: #63A15F;
+}
+
+#overview-widget a:hover {
+}
+
+#overview-widget a:visited {
+  color: #C6CDC1;
 }
