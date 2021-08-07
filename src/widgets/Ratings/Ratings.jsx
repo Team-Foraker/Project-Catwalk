@@ -48,11 +48,14 @@ const Ratings = (props) => {
     var sortBy = event.target.value;
 
     if (sortBy === "helpfulness") {
-      apiFetch('helpful')
+      apiFetch('helpful');
+      setFilteredRev(reviews);
     } else if (sortBy === 'newest') {
       apiFetch('newest')
+      setFilteredRev(reviews);
     } else if (sortBy === 'relevance') {
       apiFetch('relevant')
+      setFilteredRev(reviews);
     }
   };
 
